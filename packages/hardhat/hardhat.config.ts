@@ -17,7 +17,7 @@ const etherscanApiKey = process.env.ETHERSCAN_API_KEY || "DNXJA8RX2Q3VZ4URQIWP7Z
 
 const config: HardhatUserConfig = {
   solidity: {
-    version: "0.8.21",
+    version: "0.8.2",
     settings: {
       optimizer: {
         enabled: true,
@@ -26,7 +26,7 @@ const config: HardhatUserConfig = {
       },
     },
   },
-  defaultNetwork: "localhost",
+  defaultNetwork: "mode", //"localhost",
   namedAccounts: {
     deployer: {
       // By default, it will take the first Hardhat account as the deployer
@@ -112,6 +112,11 @@ const config: HardhatUserConfig = {
     },
     baseGoerli: {
       url: "https://goerli.base.org",
+      accounts: [deployerPrivateKey],
+    },
+    mode: {
+      url: "https://sepolia.mode.network",
+      chainId: 919,
       accounts: [deployerPrivateKey],
     },
   },
