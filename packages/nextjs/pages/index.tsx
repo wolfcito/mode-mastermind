@@ -1,5 +1,5 @@
-import Image from "next/image";
-import { MetaHeader } from "~~/components/MetaHeader";
+import Image from 'next/image'
+import { MetaHeader } from '~~/components/MetaHeader'
 
 export default function Home() {
   return (
@@ -17,6 +17,7 @@ export default function Home() {
               width="727"
               height="231"
               alt="challenge banner"
+              priority
               className="object-contain border-4 rounded-xl border-primary h-80"
             />
             <div className="max-w-3xl">
@@ -28,5 +29,5 @@ export default function Home() {
         </div>
       </div>
     </>
-  );
+  )
 }
