@@ -12,6 +12,10 @@ contract ModeMasterMind is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
 
 	Counters.Counter public tokenIdCounter;
 
+	mapping(address => uint256) public donorBalances;
+
+	event DonationReceived(address indexed donor, uint256 amount);
+
 	constructor() ERC721("ModeMasterMind", "MMM") {}
 
 	function _baseURI() internal pure override returns (string memory) {
@@ -53,4 +57,29 @@ contract ModeMasterMind is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
 	) public view override(ERC721, ERC721Enumerable) returns (bool) {
 		return super.supportsInterface(interfaceId);
 	}
+
+	/// @dev Registers this contract and assigns the NFT to the owner of this contract
+	/// @param sfsContractAddress This address is the address of the SFS contract
+	function registerThis(
+		address sfsContractAddress
+	) public onlyOwner returns (uint256 tokenId) {
+		Register sfsContract = Register(sfsContractAddress);
+		return sfsContract.register(owner());
+	}
+
+	// optional donation
+	function donate() external payable {
+		require(msg.value > 0, "Must be non-zero amount");
+		donorBalances[msg.sender] += msg.value;
+		emit DonationReceived(msg.sender, msg.value);
+	}
+
+	function withdraw() external onlyOwner {
+		require(address(this).balance > 0, "there are no funds");
+		payable(owner()).transfer(address(this).balance);
+	}
+}
+
+contract Register {
+	function register(address _recipient) public returns (uint256 tokenId) {}
 }
