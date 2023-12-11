@@ -1,40 +1,40 @@
-import { useState } from "react";
-import dynamic from "next/dynamic";
-import type { NextPage } from "next";
-import { MetaHeader } from "~~/components/MetaHeader";
-import { notification } from "~~/utils/scaffold-eth";
-import { getNFTMetadataFromIPFS } from "~~/utils/simpleNFT";
+import { useState } from 'react'
+import dynamic from 'next/dynamic'
+import type { NextPage } from 'next'
+import { MetaHeader } from '~~/components/header'
+import { notification } from '~~/utils/scaffold-eth'
+import { getNFTMetadataFromIPFS } from '~~/utils/simpleNFT'
 
-const DynamicReactJson = dynamic(import("react-json-view"), { ssr: false });
+const DynamicReactJson = dynamic(import('react-json-view'), { ssr: false })
 
 const IpfsDownload: NextPage = () => {
-  const [yourJSON, setYourJSON] = useState({});
-  const [ipfsPath, setIpfsPath] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [yourJSON, setYourJSON] = useState({})
+  const [ipfsPath, setIpfsPath] = useState('')
+  const [loading, setLoading] = useState(false)
 
   const handleIpfsDownload = async () => {
-    setLoading(true);
-    const notificationId = notification.loading("Getting data from IPFS");
+    setLoading(true)
+    const notificationId = notification.loading('Getting data from IPFS')
     try {
-      const metaData = await getNFTMetadataFromIPFS(ipfsPath);
-      notification.remove(notificationId);
-      notification.success("Downloaded from IPFS");
+      const metaData = await getNFTMetadataFromIPFS(ipfsPath)
+      notification.remove(notificationId)
+      notification.success('Downloaded from IPFS')
 
-      setYourJSON(metaData);
+      setYourJSON(metaData)
     } catch (error) {
-      notification.remove(notificationId);
-      notification.error("Error downloading from IPFS");
-      console.log(error);
+      notification.remove(notificationId)
+      notification.error('Error downloading from IPFS')
+      console.log(error)
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
-  };
+  }
 
   return (
     <>
       <MetaHeader />
-      <div className="flex items-center flex-col flex-grow pt-10">
-        <h1 className="text-center mb-4">
+      <div className="flex flex-col items-center flex-grow pt-10">
+        <h1 className="mb-4 text-center">
           <span className="block text-4xl font-bold">Download from IPFS</span>
         </h1>
         <div className={`flex border-2 border-accent/95 bg-base-200 rounded-full text-accent w-96`}>
@@ -47,30 +47,30 @@ const IpfsDownload: NextPage = () => {
           />
         </div>
         <button
-          className={`btn btn-secondary my-6 ${loading ? "loading" : ""}`}
+          className={`btn btn-secondary my-6 ${loading ? 'loading' : ''}`}
           disabled={loading}
           onClick={handleIpfsDownload}
         >
           Download from IPFS
         </button>
         <DynamicReactJson
-          style={{ padding: "1rem", borderRadius: "0.75rem" }}
+          style={{ padding: '1rem', borderRadius: '0.75rem' }}
           src={yourJSON}
           theme="solarized"
           enableClipboard={false}
           onEdit={edit => {
-            setYourJSON(edit.updated_src);
+            setYourJSON(edit.updated_src)
           }}
           onAdd={add => {
-            setYourJSON(add.updated_src);
+            setYourJSON(add.updated_src)
           }}
           onDelete={del => {
-            setYourJSON(del.updated_src);
+            setYourJSON(del.updated_src)
           }}
         />
       </div>
     </>
-  );
-};
+  )
+}
 
-export default IpfsDownload;
+export default IpfsDownload

@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { MetaHeader } from '~~/components/MetaHeader'
+import { MetaHeader } from '~~/components/header'
 
 export default function Home() {
   return (
@@ -8,7 +8,7 @@ export default function Home() {
       <div className="flex flex-col items-center flex-grow pt-10">
         <div className="px-5 w-[90%] md:w-[75%]">
           <h1 className="mb-6 text-center">
-            <span className="block text-4xl font-bold">🚀 Welcome to Mode Mastermind</span>
+            <span className="block text-4xl font-bold">Mode Mastermind</span>
             <span className="block text-2xl font-bold">Unleash Your Knowledge!</span>
           </h1>
           <div className="flex flex-col items-center justify-center">

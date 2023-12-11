@@ -1,5 +1,5 @@
-import { MetaHeader } from '~~/components/MetaHeader'
 import { Spinner } from '~~/components/Spinner'
+import { MetaHeader } from '~~/components/header'
 import { Address } from '~~/components/scaffold-eth'
 import { useScaffoldEventHistory } from '~~/hooks/scaffold-eth'
 

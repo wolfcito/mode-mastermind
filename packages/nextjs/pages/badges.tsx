@@ -1,5 +1,5 @@
 import { useAccount } from 'wagmi'
-import { MetaHeader } from '~~/components/MetaHeader'
+import { MetaHeader } from '~~/components/header'
 import { RainbowKitCustomConnectButton } from '~~/components/scaffold-eth'
 import { MyHoldings } from '~~/components/simpleNFT'
 import { useScaffoldContractRead, useScaffoldContractWrite } from '~~/hooks/scaffold-eth'
@@ -52,7 +52,7 @@ export default function MyNFTs() {
       <div className="flex flex-col items-center pt-10">
         <div className="px-5">
           <h1 className="mb-8 text-center">
-            <span className="block text-4xl font-bold">My NFTs</span>
+            <span className="block text-4xl font-bold">Achievements</span>
           </h1>
         </div>
       </div>
