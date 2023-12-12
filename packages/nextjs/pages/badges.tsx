@@ -1,4 +1,5 @@
 import { useAccount } from 'wagmi'
+import { Button } from '~~/components/button'
 import { MetaHeader } from '~~/components/header'
 import { RainbowKitCustomConnectButton } from '~~/components/scaffold-eth'
 import { MyHoldings } from '~~/components/simpleNFT'
@@ -60,9 +61,7 @@ export default function MyNFTs() {
         {!isConnected || isConnecting ? (
           <RainbowKitCustomConnectButton />
         ) : (
-          <button className="btn btn-secondary" onClick={handleMintItem}>
-            Mint NFT
-          </button>
+          <Button label="Mint Badge" onClick={handleMintItem} />
         )}
       </div>
       <MyHoldings />
