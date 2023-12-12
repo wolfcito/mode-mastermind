@@ -18,7 +18,7 @@ export default function Home() {
               height="231"
               alt="challenge banner"
               priority
-              className="object-contain border-4 rounded-xl border-primary h-80"
+              className="object-contain w-auto border-4 rounded-xl border-neutral h-80"
             />
             <div className="max-w-3xl">
               <p className="mt-8 text-lg text-center">

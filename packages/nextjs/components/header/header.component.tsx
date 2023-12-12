@@ -15,7 +15,7 @@ const NavLink = ({ href, children }: { href: string; children: React.ReactNode }
       passHref
       className={`${
         isActive ? 'bg-secondary shadow-md' : ''
-      } hover:bg-secondary hover:shadow-md focus:!bg-secondary active:!text-neutral py-1.5 px-3 text-sm rounded-full gap-2 grid grid-flow-col`}
+      } hover:bg-secondary hover:shadow-md focus:!bg-secondary active:!text-neutral-content py-1.5 px-3 text-sm rounded-full gap-2 grid grid-flow-col`}
     >
       {children}
     </Link>
@@ -47,30 +47,13 @@ export function Header() {
           Transfers
         </NavLink>
       </li>
-      {/* <li>
-        <NavLink href="/ipfsUpload">
-          <ArrowUpTrayIcon className="w-4 h-4" />
-          IPFS Upload
-        </NavLink>
-      </li>
-      <li>
-        <NavLink href="/ipfsDownload">
-          <ArrowDownTrayIcon className="w-4 h-4" />
-          IPFS Download
-        </NavLink>
-      </li> */}
+
       <li>
         <NavLink href="/debug">
           <BugAntIcon className="w-4 h-4" />
           Debug Contracts
         </NavLink>
       </li>
-      {/* <li>
-        <NavLink href="/blockexplorer">
-          <MagnifyingGlassIcon className="w-4 h-4" />
-          Block Explorer
-        </NavLink>
-      </li> */}
     </>
   )
 
