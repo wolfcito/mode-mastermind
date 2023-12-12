@@ -1,0 +1,142 @@
+.btn-cool {
+  width: 200px;
+  position: relative;
+}
+
+.btn-cool a {
+  height: 100%;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1em;
+  font-family: sans-serif;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 60px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 1;
+  font-weight: 400;
+  letter-spacing: 1px;
+  overflow: hidden;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.5s;
+  position: relative;
+  backdrop-filter: blur(15px);
+}
+
+.btn-cool a {
+  letter-spacing: 3px;
+}
+
+.btn-cool a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0.15), transparent);
+  transform: skewX(45deg) translateX(0%);
+  transition: 0.3s;
+}
+
+.btn-cool:hover a::before {
+  transform: skewX(45deg) translateX(200%);
+}
+
+.btn-cool::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  width: 60px;
+  height: 10px;
+  transform: translateX(-50%);
+  background: #9333EA;
+  border-radius: 10px;
+  transition: 0.3s;
+  transition-delay: 0s;
+  box-shadow: 0 0 5px #9333EA, 0 0 15px #9333EA, 0 0 30px #9333EA,
+    0 0 60px #9333EA;
+}
+
+.btn-cool::before {
+  bottom: 0;
+  height: 50%;
+  width: 80%;
+  border-radius: 30px;
+  transition-delay: 0.3s;
+}
+
+.btn-cool::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -5px;
+  width: 60px;
+  height: 10px;
+  transform: translateX(-50%);
+  background: #9333EA;
+  border-radius: 10px;
+  transition: 0.3s;
+  transition-delay: 0s;
+  box-shadow: 0 0 5px #9333EA, 0 0 15px #9333EA, 0 0 30px #9333EA,
+    0 0 60px #9333EA;
+}
+
+.btn-cool::after {
+  top: 0;
+  height: 50%;
+  width: 80%;
+  border-radius: 30px;
+  transition-delay: 0.3s;
+}
+
+.loader {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, transparent, transparent 30%, #e5f403);
+  animation: loader 2s linear infinite;
+}
+
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+    filter: hue-rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+    filter: hue-rotate(360deg);
+  }
+}
+
+.loader:before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  bottom: 6px;
+  right: 6px;
+  background: #000;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.loader:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(45deg, transparent, transparent 30%, #e5f403);
+  border-radius: 50%;
+  z-index: 1;
+  filter: blur(30px);
+}

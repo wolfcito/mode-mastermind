@@ -13,6 +13,7 @@ import { useNativeCurrencyPrice } from '~~/hooks/scaffold-eth'
 import { useGlobalState } from '~~/services/store/store'
 import { wagmiConfig } from '~~/services/web3/wagmiConfig'
 import { appChains } from '~~/services/web3/wagmiConnectors'
+import '~~/styles/custom.css'
 import '~~/styles/globals.css'
 
 const ScaffoldEthApp = ({ Component, pageProps }: AppProps) => {
