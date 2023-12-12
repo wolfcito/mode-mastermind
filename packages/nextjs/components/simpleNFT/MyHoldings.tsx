@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Spinner } from '../Spinner'
+import { Spinner } from '../spinner/spinner.component'
 import { NFTCard } from './NFTCard'
 import { useAccount } from 'wagmi'
 import { useScaffoldContract, useScaffoldContractRead } from '~~/hooks/scaffold-eth'
@@ -72,7 +72,7 @@ export const MyHoldings = () => {
   if (allCollectiblesLoading)
     return (
       <div className="flex items-center justify-center mt-10">
-        <Spinner width="75" height="75" />
+        <Spinner />
       </div>
     )
 

@@ -1,6 +1,6 @@
-import { Spinner } from '~~/components/Spinner'
 import { MetaHeader } from '~~/components/header'
 import { Address } from '~~/components/scaffold-eth'
+import { Spinner } from '~~/components/spinner/spinner.component'
 import { useScaffoldEventHistory } from '~~/hooks/scaffold-eth'
 
 export default function Transfers() {
@@ -14,7 +14,7 @@ export default function Transfers() {
   if (isLoading)
     return (
       <div className="flex items-center justify-center mt-10">
-        <Spinner width="75" height="75" />
+        <Spinner />
       </div>
     )
 
