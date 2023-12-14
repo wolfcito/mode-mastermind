@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import { ArrowPathIcon, Bars3Icon, BugAntIcon, RocketLaunchIcon } from '@heroicons/react/24/outline'
 import { FaucetButton, RainbowKitCustomConnectButton } from '~~/components/scaffold-eth'
 import { useOutsideClick } from '~~/hooks/scaffold-eth'
+import { LogoIcon } from '~~/icons'
 
 const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => {
   const router = useRouter()
@@ -83,10 +84,10 @@ export function Header() {
           )}
         </div>
         <Link href="/" passHref className="items-center hidden gap-1 ml-4 mr-6 xl:flex shrink-0">
-          {/* <div className="relative flex w-10 h-10">
-            <Image alt="SE2 logo" className="cursor-pointer" fill src="/logo.svg" />
-          </div> */}
-          <div className="flex flex-col">
+          <div className="relative flex w-10 h-10">
+            <LogoIcon />
+          </div>
+          <div className="flex flex-col ml-1">
             <span className="font-bold leading-tight">Mode</span>
             <span className="text-xs">Mastermind</span>
           </div>
