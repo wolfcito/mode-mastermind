@@ -1,7 +1,9 @@
 import React from "react"
+import { DidacticContentClasses } from "~~/components/carousel-didactic-content/interfaces";
 
 export interface ContentDidacticByIdState {
-    progress: number
+    progress: number,
+    contentDidactic: DidacticContentClasses
 }
 
 export interface ContentDidacticByIdActions {

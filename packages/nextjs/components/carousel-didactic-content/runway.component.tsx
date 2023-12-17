@@ -7,9 +7,11 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 import styles from "~~/styles/runway-didactic-content.module.css"
+import useRunwayContentDidactic from '~~/hooks/content-didactic/useRunwayContentDidactic';
 
 
 const RunwayContentDidactic = () => {
+    const { } = useRunwayContentDidactic();
     return (
         <Swiper
             pagination={{
