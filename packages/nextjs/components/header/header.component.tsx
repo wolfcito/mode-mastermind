@@ -85,8 +85,7 @@ export function Header() {
             <ModeLogoIcon />
           </div>
           <div className="flex flex-col ml-1">
-            <span className="font-bold leading-tight">Mode</span>
-            <span className="text-xs">Mastermind</span>
+            <span className="font-bold leading-tight">Mode Mastermind</span>
           </div>
         </Link>
         <ul className="hidden gap-2 px-1 xl:flex xl:flex-nowrap menu menu-horizontal">{navLinks}</ul>
