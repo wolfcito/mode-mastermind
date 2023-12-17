@@ -40,12 +40,11 @@ const ScaffoldEthApp = ({ Component, pageProps }: AppProps) => {
         avatar={BlockieAvatar}
         theme={isDarkTheme ? darkTheme() : lightTheme()}
       >
-        <div className="flex flex-col min-h-screen text-primary-content font-space-grotesk">
+        <div className="flex flex-col min-h-screen text-primary-content font-ibm-sans bg-[url('/assets/mode/bg-home2.png')] bg-cover">
           <Header />
           <main className="relative flex flex-col flex-1">
             <Component {...pageProps} />
           </main>
-          {/* <Footer /> */}
         </div>
         <Toaster />
       </RainbowKitProvider>

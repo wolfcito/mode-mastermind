@@ -92,7 +92,9 @@ module.exports = {
     // Extend Tailwind classes (e.g. font-space-grotesk, animate-grow)
     extend: {
       fontFamily: {
-        'space-grotesk': ['Space Grotesk', 'sans-serif'],
+        'ibm-mono': ['IBM Plex Mono', , 'monospace'],
+        'ibm-sans': ['IBM Plex Sans', 'sans-serif'],
+        VT323: ['VT323', 'monospace'],
       },
       boxShadow: {
         center: '0 0 12px -2px rgb(0 0 0 / 0.05)',
