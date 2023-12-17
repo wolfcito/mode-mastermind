@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import { ArrowPathIcon, Bars3Icon, BugAntIcon, RocketLaunchIcon } from '@heroicons/react/24/outline'
 import { FaucetButton, RainbowKitCustomConnectButton } from '~~/components/scaffold-eth'
 import { useOutsideClick } from '~~/hooks/scaffold-eth'
-import { LogoIcon } from '~~/icons'
+import { ModeLogoIcon } from '~~/icons'
 
 const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => {
   const router = useRouter()
@@ -23,9 +23,6 @@ const NavLink = ({ href, children }: { href: string; children: React.ReactNode }
   )
 }
 
-/**
- * Site header
- */
 export function Header() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
   const burgerMenuRef = useRef<HTMLDivElement>(null)
@@ -59,7 +56,7 @@ export function Header() {
   )
 
   return (
-    <div className="sticky top-0 z-20 justify-between flex-shrink-0 min-h-0 px-0 shadow-md xl:static navbar bg-primary shadow-secondary sm:px-2">
+    <div className="sticky top-0 z-20 justify-between flex-shrink-0 min-h-0 px-0 bg-transparent xl:static navbar sm:px-2">
       <div className="w-auto navbar-start xl:w-1/2">
         <div className="xl:hidden dropdown" ref={burgerMenuRef}>
           <label
@@ -85,11 +82,10 @@ export function Header() {
         </div>
         <Link href="/" passHref className="items-center hidden gap-1 ml-4 mr-6 xl:flex shrink-0">
           <div className="relative flex w-10 h-10">
-            <LogoIcon />
+            <ModeLogoIcon />
           </div>
           <div className="flex flex-col ml-1">
-            <span className="font-bold leading-tight">Mode</span>
-            <span className="text-xs">Mastermind</span>
+            <span className="font-bold leading-tight">Mode Mastermind</span>
           </div>
         </Link>
         <ul className="hidden gap-2 px-1 xl:flex xl:flex-nowrap menu menu-horizontal">{navLinks}</ul>

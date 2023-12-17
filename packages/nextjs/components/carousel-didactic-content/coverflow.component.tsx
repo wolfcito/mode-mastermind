@@ -9,6 +9,7 @@ import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import styles from '~~/styles/carousel-didactic-content.module.css';
+import { ButtonSuccess } from '../button/button-success.component';
 
 
 const DidacticContentCoverflow = () => {
@@ -40,7 +41,7 @@ const DidacticContentCoverflow = () => {
                                 alt={card.title}
                                 src={card.img.path}
                             />
-                            <Button label='START!' onClick={() => { router.push(card.link) }} />
+                            <ButtonSuccess label='START!' onClick={() => { router.push(card.link) }} />
                         </SwiperSlide>
                     ))
                 }
