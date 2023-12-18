@@ -52,9 +52,9 @@ export const MasterClasses: DidacticContentClasses[] = [
         badget: {
             description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
             img: {
-                path: "/public/assets/badge-1.png",
-                height: 50,
-                width: 50
+                path: "/assets/badge-1.png",
+                heigth: 150,
+                width: 150
             },
             tags: ["web3.0", "blockchain"],
             title: "Badget 1"
@@ -79,16 +79,19 @@ export const MasterClasses: DidacticContentClasses[] = [
                                 {
                                     isCorrect: true,
                                     label: "Lorem Ipsum is simply dummy text ",
+                                    name: "input-1",
                                     value: "1"
                                 },
                                 {
                                     isCorrect: false,
                                     label: "It is a long established fact ",
+                                    name: "input-1",
                                     value: "3"
                                 },
                                 {
                                     isCorrect: false,
                                     label: "Contrary to popular belief,",
+                                    name: "input-1",
                                     value: "3"
                                 }
                             ]
@@ -114,16 +117,19 @@ export const MasterClasses: DidacticContentClasses[] = [
                                 {
                                     isCorrect: true,
                                     label: "Lorem Ipsum is simply dummy text ",
+                                    name: "input-1",
                                     value: "1"
                                 },
                                 {
                                     isCorrect: false,
                                     label: "It is a long established fact ",
+                                    name: "input-1",
                                     value: "3"
                                 },
                                 {
                                     isCorrect: false,
                                     label: "Contrary to popular belief,",
+                                    name: "input-1",
                                     value: "3"
                                 }
                             ]
@@ -149,16 +155,19 @@ export const MasterClasses: DidacticContentClasses[] = [
                                 {
                                     isCorrect: true,
                                     label: "Lorem Ipsum is simply dummy text ",
+                                    name: "input-1",
                                     value: "1"
                                 },
                                 {
                                     isCorrect: false,
                                     label: "It is a long established fact ",
+                                    name: "input-1",
                                     value: "3"
                                 },
                                 {
                                     isCorrect: false,
                                     label: "Contrary to popular belief,",
+                                    name: "input-1",
                                     value: "3"
                                 }
                             ]
@@ -172,9 +181,9 @@ export const MasterClasses: DidacticContentClasses[] = [
         badget: {
             description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
             img: {
-                path: "/public/assets/badge-1.png",
-                height: 50,
-                width: 50
+                path: "/assets/badge-1.png",
+                heigth: 150,
+                width: 150
             },
             tags: ["web3.0", "blockchain"],
             title: "Badget 2"
@@ -199,16 +208,19 @@ export const MasterClasses: DidacticContentClasses[] = [
                                 {
                                     isCorrect: true,
                                     label: "Lorem Ipsum is simply dummy text ",
+                                    name: "input-1",
                                     value: "1"
                                 },
                                 {
                                     isCorrect: false,
                                     label: "It is a long established fact ",
+                                    name: "input-1",
                                     value: "3"
                                 },
                                 {
                                     isCorrect: false,
                                     label: "Contrary to popular belief,",
+                                    name: "input-1",
                                     value: "3"
                                 }
                             ]
@@ -234,16 +246,19 @@ export const MasterClasses: DidacticContentClasses[] = [
                                 {
                                     isCorrect: true,
                                     label: "Lorem Ipsum is simply dummy text ",
+                                    name: "input-1",
                                     value: "1"
                                 },
                                 {
                                     isCorrect: false,
                                     label: "It is a long established fact ",
+                                    name: "input-1",
                                     value: "3"
                                 },
                                 {
                                     isCorrect: false,
                                     label: "Contrary to popular belief,",
+                                    name: "input-1",
                                     value: "3"
                                 }
                             ]
@@ -269,16 +284,19 @@ export const MasterClasses: DidacticContentClasses[] = [
                                 {
                                     isCorrect: true,
                                     label: "Lorem Ipsum is simply dummy text ",
+                                    name: "input-1",
                                     value: "1"
                                 },
                                 {
                                     isCorrect: false,
                                     label: "It is a long established fact ",
+                                    name: "input-1",
                                     value: "3"
                                 },
                                 {
                                     isCorrect: false,
                                     label: "Contrary to popular belief,",
+                                    name: "input-1",
                                     value: "3"
                                 }
                             ]
@@ -292,9 +310,9 @@ export const MasterClasses: DidacticContentClasses[] = [
         badget: {
             description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
             img: {
-                path: "/public/assets/badge-1.png",
-                height: 50,
-                width: 50
+                path: "/assets/badge-1.png",
+                heigth: 150,
+                width: 150
             },
             tags: ["web3.0", "blockchain"],
             title: "Badget 3"
@@ -319,16 +337,19 @@ export const MasterClasses: DidacticContentClasses[] = [
                                 {
                                     isCorrect: true,
                                     label: "Lorem Ipsum is simply dummy text ",
+                                    name: "input-1",
                                     value: "1"
                                 },
                                 {
                                     isCorrect: false,
                                     label: "It is a long established fact ",
+                                    name: "input-1",
                                     value: "3"
                                 },
                                 {
                                     isCorrect: false,
                                     label: "Contrary to popular belief,",
+                                    name: "input-1",
                                     value: "3"
                                 }
                             ]
@@ -354,16 +375,19 @@ export const MasterClasses: DidacticContentClasses[] = [
                                 {
                                     isCorrect: true,
                                     label: "Lorem Ipsum is simply dummy text ",
+                                    name: "input-1",
                                     value: "1"
                                 },
                                 {
                                     isCorrect: false,
                                     label: "It is a long established fact ",
+                                    name: "input-1",
                                     value: "3"
                                 },
                                 {
                                     isCorrect: false,
                                     label: "Contrary to popular belief,",
+                                    name: "input-1",
                                     value: "3"
                                 }
                             ]
@@ -389,16 +413,19 @@ export const MasterClasses: DidacticContentClasses[] = [
                                 {
                                     isCorrect: true,
                                     label: "Lorem Ipsum is simply dummy text ",
+                                    name: "input-1",
                                     value: "1"
                                 },
                                 {
                                     isCorrect: false,
                                     label: "It is a long established fact ",
+                                    name: "input-1",
                                     value: "3"
                                 },
                                 {
                                     isCorrect: false,
                                     label: "Contrary to popular belief,",
+                                    name: "input-1",
                                     value: "3"
                                 }
                             ]
@@ -412,9 +439,9 @@ export const MasterClasses: DidacticContentClasses[] = [
         badget: {
             description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
             img: {
-                path: "/public/assets/badge-1.png",
-                height: 50,
-                width: 50
+                path: "/assets/badge-1.png",
+                heigth: 150,
+                width: 150
             },
             tags: ["web3.0", "blockchain"],
             title: "Badget 4"
@@ -439,16 +466,19 @@ export const MasterClasses: DidacticContentClasses[] = [
                                 {
                                     isCorrect: true,
                                     label: "Lorem Ipsum is simply dummy text ",
+                                    name: "input-1",
                                     value: "1"
                                 },
                                 {
                                     isCorrect: false,
                                     label: "It is a long established fact ",
+                                    name: "input-1",
                                     value: "3"
                                 },
                                 {
                                     isCorrect: false,
                                     label: "Contrary to popular belief,",
+                                    name: "input-1",
                                     value: "3"
                                 }
                             ]
@@ -474,16 +504,19 @@ export const MasterClasses: DidacticContentClasses[] = [
                                 {
                                     isCorrect: true,
                                     label: "Lorem Ipsum is simply dummy text ",
+                                    name: "input-1",
                                     value: "1"
                                 },
                                 {
                                     isCorrect: false,
                                     label: "It is a long established fact ",
+                                    name: "input-1",
                                     value: "3"
                                 },
                                 {
                                     isCorrect: false,
                                     label: "Contrary to popular belief,",
+                                    name: "input-1",
                                     value: "3"
                                 }
                             ]
@@ -509,16 +542,19 @@ export const MasterClasses: DidacticContentClasses[] = [
                                 {
                                     isCorrect: true,
                                     label: "Lorem Ipsum is simply dummy text ",
+                                    name: "input-1",
                                     value: "1"
                                 },
                                 {
                                     isCorrect: false,
                                     label: "It is a long established fact ",
+                                    name: "input-1",
                                     value: "3"
                                 },
                                 {
                                     isCorrect: false,
                                     label: "Contrary to popular belief,",
+                                    name: "input-1",
                                     value: "3"
                                 }
                             ]

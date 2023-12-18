@@ -1,3 +1,5 @@
+import { ContentDidacticSwiperSlide } from "~~/contexts/ContentDidacticById/interfaces";
+
 export interface DidacticContentCoverflowCardProps {
     id: string,
     title: string,
@@ -11,6 +13,7 @@ export interface DidacticContentCoverflowCardProps {
 }
 export interface QuizzAnswer {
     label: string;
+    name: string;
     value: string;
     isCorrect: boolean;
     
@@ -44,10 +47,15 @@ export interface  DidacticContentClasses {
         img: {
             path: string,
             width: number,
-            height: number
+            heigth: number
         },
         title: string;
         description: string;
         tags: string[]
     }
+}
+
+
+export interface SwiperSlideContentProps {
+    slide : ContentDidacticSwiperSlide
 }

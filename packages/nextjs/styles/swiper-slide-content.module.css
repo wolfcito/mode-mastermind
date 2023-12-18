@@ -1,0 +1,14 @@
+.badget {
+    background-position: center;
+    background-size: cover;
+    border-width: 1px;
+    border-radius: 20px;
+    text-align: -webkit-center;
+    animation: pulsate 1.5s infinite alternate;  
+    box-shadow: 0 0 .2rem #fff,
+              0 0 .2rem #fff,
+              0 0 2rem #9333EA,
+              0 0 0.8rem #9333EA,
+              0 0 2.8rem #9333EA,
+              inset 0 0 1.3rem #9333EA; 
+}
