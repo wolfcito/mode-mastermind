@@ -1,5 +1,9 @@
 import React from "react"
+<<<<<<< HEAD
 import { DidacticContentClasses, Quizz } from "~~/components/carousel-didactic-content/interfaces";
+=======
+import { DidacticContentClasses } from "~~/components/carousel-didactic-content/interfaces";
+>>>>>>> release/mvp
 
 export interface ContentDidacticByIdState {
     progress: number,
