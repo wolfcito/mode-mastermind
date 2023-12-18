@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { DidacticContentCoverflow } from '~~/components/carousel-didactic-content'
 import { FooterDecorator } from '~~/components/footer'
 import { MetaHeader } from '~~/components/header'
 
@@ -6,7 +7,7 @@ export default function Home() {
   return (
     <>
       <MetaHeader />
-      <div className="flex flex-col items-center flex-grow pt-10 pb-60">
+      <main className="flex flex-col items-center flex-grow pt-10 pb-60">
         <div className="px-5 w-[90%] md:w-[75%]">
           <h1 className="w-full mb-6 text-center">
             <span className="text-6xl font-VT323">LEARN MODE AND UNLOCK RARE BADGES</span>
@@ -34,10 +35,13 @@ export default function Home() {
                 achievements. Your journey to becoming a Mode Mastermind begins here!
               </p>
             </div>
+            <section>
+              <DidacticContentCoverflow />
+            </section>
             <FooterDecorator />
           </div>
         </div>
-      </div>
+      </main>
     </>
   )
 }
