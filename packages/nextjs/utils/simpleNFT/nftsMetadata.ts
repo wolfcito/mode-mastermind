@@ -2,7 +2,8 @@ const nftsMetadata = [
   {
     description: "It's actually a bison?",
     external_url: '/portfolio/paintings', // <-- this can link to a page for the specific file too
-    image: 'https://picsum.photos/200/300',
+    image:
+      'https://yellow-rotten-planarian-252.mypinata.cloud/ipfs/QmSvoR2Rh73Y3wE8WQdQcNBkJq9BK3yA7BrvHtLZJBSZsD/badge1.png',
     name: 'Buffalo',
     attributes: [
       {
@@ -22,7 +23,8 @@ const nftsMetadata = [
   {
     description: 'What is it so worried about?',
     external_url: '/portfolio/paintings', // <-- this can link to a page for the specific file too
-    image: 'https://picsum.photos/200/300',
+    image:
+      'https://yellow-rotten-planarian-252.mypinata.cloud/ipfs/QmSvoR2Rh73Y3wE8WQdQcNBkJq9BK3yA7BrvHtLZJBSZsD/badge2.png',
     name: 'Zebra',
     attributes: [
       {
@@ -42,7 +44,8 @@ const nftsMetadata = [
   {
     description: 'What a horn!',
     external_url: '/portfolio/paintings', // <-- this can link to a page for the specific file too
-    image: 'https://picsum.photos/200/300',
+    image:
+      'https://yellow-rotten-planarian-252.mypinata.cloud/ipfs/QmSvoR2Rh73Y3wE8WQdQcNBkJq9BK3yA7BrvHtLZJBSZsD/badge3.png',
     name: 'Rhino',
     attributes: [
       {
@@ -62,7 +65,8 @@ const nftsMetadata = [
   {
     description: 'Is that an underbyte?',
     external_url: '/portfolio/paintings', // <-- this can link to a page for the specific file too
-    image: 'https://picsum.photos/200/300',
+    image:
+      'https://yellow-rotten-planarian-252.mypinata.cloud/ipfs/QmSvoR2Rh73Y3wE8WQdQcNBkJq9BK3yA7BrvHtLZJBSZsD/badge4.png',
     name: 'Fish',
     attributes: [
       {
@@ -82,7 +86,8 @@ const nftsMetadata = [
   {
     description: 'So delicate.',
     external_url: '/portfolio/paintings', // <-- this can link to a page for the specific file too
-    image: 'https://picsum.photos/200/300',
+    image:
+      'https://yellow-rotten-planarian-252.mypinata.cloud/ipfs/QmSvoR2Rh73Y3wE8WQdQcNBkJq9BK3yA7BrvHtLZJBSZsD/badge5.png',
     name: 'Flamingo',
     attributes: [
       {
@@ -102,7 +107,8 @@ const nftsMetadata = [
   {
     description: 'Raaaar!',
     external_url: '/portfolio/paintings', // <-- this can link to a page for the specific file too
-    image: 'https://picsum.photos/200/300',
+    image:
+      'https://yellow-rotten-planarian-252.mypinata.cloud/ipfs/QmSvoR2Rh73Y3wE8WQdQcNBkJq9BK3yA7BrvHtLZJBSZsD/badge6.png',
     name: 'Godzilla',
     attributes: [
       {

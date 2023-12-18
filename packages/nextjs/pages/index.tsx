@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { nanoid } from 'nanoid'
 import { MetaHeader } from '~~/components/header'
 import { HOME_ROADMAP } from '~~/constants'
 
@@ -13,7 +14,7 @@ export default function Home() {
           </h1>
 
           {HOME_ROADMAP.map(item => (
-            <div className="flex flex-col items-center justify-center" key={crypto.randomUUID()}>
+            <div className="flex flex-col items-center justify-center" key={nanoid()}>
               <div className="flex flex-col items-center justify-center max-w-lg">
                 <p className="mt-8 text-2xl font-light text-center font-ibm-mono text-neutral-400">
                   {item.description}
