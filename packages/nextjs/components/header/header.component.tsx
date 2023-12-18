@@ -35,20 +35,20 @@ export function Header() {
     <>
       <li>
         <NavLink href="/badges">
-          <RocketLaunchIcon className="w-4 h-4" />
+          {/* <RocketLaunchIcon className="w-4 h-4" /> */}
           Achievements
         </NavLink>
       </li>
       <li>
         <NavLink href="/transfers">
-          <ArrowPathIcon className="w-4 h-4" />
+          {/* <ArrowPathIcon className="w-4 h-4" /> */}
           Transfers
         </NavLink>
       </li>
 
       <li>
         <NavLink href="/debug">
-          <BugAntIcon className="w-4 h-4" />
+          {/* <BugAntIcon className="w-4 h-4" /> */}
           Debug Contracts
         </NavLink>
       </li>
@@ -88,7 +88,7 @@ export function Header() {
             <span className="font-bold leading-tight">Mode Mastermind</span>
           </div>
         </Link>
-        <ul className="hidden gap-2 px-1 xl:flex xl:flex-nowrap menu menu-horizontal">{navLinks}</ul>
+        <ul className="hidden gap-2 px-1 xl:flex xl:flex-nowrap menu menu-horizontal text-neutral-500">{navLinks}</ul>
       </div>
       <div className="flex-grow mr-4 navbar-end">
         <RainbowKitCustomConnectButton />
