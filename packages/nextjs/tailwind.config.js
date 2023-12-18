@@ -15,7 +15,7 @@ module.exports = {
           accent: '#C2C2C2',
           'accent-content': '#088484',
           neutral: '#222222',
-          'neutral-content': '#9333EA',
+          'neutral-content': '#DFFE00',
           'base-100': '#222222',
           'base-200': '#000000',
           'base-300': '#111111',
@@ -42,7 +42,7 @@ module.exports = {
           accent: '#C2C2C2',
           'accent-content': '#088484',
           neutral: '#222222',
-          'neutral-content': '#9333EA',
+          'neutral-content': '#DFFE00',
           'base-100': '#222222',
           'base-200': '#000000',
           'base-300': '#111111',
@@ -92,7 +92,7 @@ module.exports = {
     // Extend Tailwind classes (e.g. font-space-grotesk, animate-grow)
     extend: {
       fontFamily: {
-        'ibm-mono': ['IBM Plex Mono', , 'monospace'],
+        'ibm-mono': ['IBM Plex Mono', 'monospace'],
         'ibm-sans': ['IBM Plex Sans', 'sans-serif'],
         VT323: ['VT323', 'monospace'],
       },

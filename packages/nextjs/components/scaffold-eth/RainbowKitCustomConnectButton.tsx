@@ -14,7 +14,6 @@ import {
 } from '@heroicons/react/24/outline'
 import { Address, Balance, BlockieAvatar } from '~~/components/scaffold-eth'
 import { useAutoConnect, useNetworkColor } from '~~/hooks/scaffold-eth'
-import { PlayIcon } from '~~/icons'
 import { getBlockExplorerAddressLink, getTargetNetwork } from '~~/utils/scaffold-eth'
 
 /**
@@ -41,9 +40,12 @@ export const RainbowKitCustomConnectButton = () => {
             {(() => {
               if (!connected) {
                 return (
-                  <button className="normal-case btn btn-secondary btn-sm" onClick={openConnectModal} type="button">
-                    <PlayIcon />
-                    Play me
+                  <button
+                    className="px-6 py-1 text-sm normal-case border-t border-l rounded-full bg-gradient-to-tl from-black to-secondary-content/50 border-secondary-content/50"
+                    onClick={openConnectModal}
+                    type="button"
+                  >
+                    Connect Wallet
                   </button>
                 )
               }
