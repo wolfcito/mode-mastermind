@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react'
-import { usePathname, useSearchParams } from 'next/navigation'
-import { useRouter } from 'next/navigation'
-import { Spinner } from '../spinner/spinner.component'
-import { NFTCard } from './NFTCard'
+import { NFTCard } from './nft-card.component'
 import { useAccount } from 'wagmi'
+import { Spinner } from '~~/components/spinner'
 import { useScaffoldContract, useScaffoldContractRead } from '~~/hooks/scaffold-eth'
 import { notification } from '~~/utils/scaffold-eth'
 import { NFTMetaData, getNFTMetadataFromIPFS } from '~~/utils/simpleNFT'
@@ -18,9 +16,6 @@ export const MyHoldings = ({ type = 'badge' }: { type?: string }) => {
   const { address: connectedAddress } = useAccount()
   const [myAllCollectibles, setMyAllCollectibles] = useState<Collectible[]>([])
   const [allCollectiblesLoading, setAllCollectiblesLoading] = useState(false)
-
-  // const pathname = usePathname()
-  // const type = pathname?.split('/')[1]
 
   const { data: modeMasterMindContract } = useScaffoldContract({
     contractName: 'ModeMasterMind',
