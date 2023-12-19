@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import { usePathname, useSearchParams } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import { Spinner } from '../spinner/spinner.component'
 import { NFTCard } from './NFTCard'
 import { useAccount } from 'wagmi'
@@ -12,10 +14,13 @@ export interface Collectible extends Partial<NFTMetaData> {
   owner: string
 }
 
-export const MyHoldings = () => {
+export const MyHoldings = ({ type = 'badge' }: { type?: string }) => {
   const { address: connectedAddress } = useAccount()
   const [myAllCollectibles, setMyAllCollectibles] = useState<Collectible[]>([])
   const [allCollectiblesLoading, setAllCollectiblesLoading] = useState(false)
+
+  // const pathname = usePathname()
+  // const type = pathname?.split('/')[1]
 
   const { data: modeMasterMindContract } = useScaffoldContract({
     contractName: 'ModeMasterMind',
@@ -61,7 +66,8 @@ export const MyHoldings = () => {
         }
       }
       collectibleUpdate.sort((a, b) => a.id - b.id)
-      setMyAllCollectibles(collectibleUpdate)
+      const collectibleAchivements = collectibleUpdate.filter(collected => collected.type === type)
+      setMyAllCollectibles(collectibleAchivements)
       setAllCollectiblesLoading(false)
     }
 
@@ -80,7 +86,7 @@ export const MyHoldings = () => {
     <>
       {myAllCollectibles.length === 0 ? (
         <div className="flex items-center justify-center mt-10">
-          <div className="text-2xl text-primary-content">No NFTs found</div>
+          <div className="text-2xl text-primary-content">What are you waiting for to get your {type}?</div>
         </div>
       ) : (
         <div className="flex flex-wrap justify-center gap-4 px-5 my-8">
