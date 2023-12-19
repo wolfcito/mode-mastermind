@@ -4,12 +4,12 @@ import type { NextPage } from 'next'
 import { MetaHeader } from '~~/components/header'
 import { notification } from '~~/utils/scaffold-eth'
 import { ipfsClient } from '~~/utils/simpleNFT'
-import nftsMetadata from '~~/utils/simpleNFT/nftsMetadata'
+import { badgesMetadata } from '~~/utils/simpleNFT/nftsMetadata'
 
 const DynamicReactJson = dynamic(import('react-json-view'), { ssr: false })
 
 const IpfsUpload: NextPage = () => {
-  const [yourJSON, setYourJSON] = useState<object>(nftsMetadata[0])
+  const [yourJSON, setYourJSON] = useState<object>(badgesMetadata[0])
   const [loading, setLoading] = useState(false)
   const [uploadedIpfsPath, setUploadedIpfsPath] = useState('')
 

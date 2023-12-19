@@ -1,15 +1,16 @@
 import { useAccount } from 'wagmi'
-import { AchievementButton, BadgeButton } from '~~/components/button'
+import { AchievementButton } from '~~/components/button'
 import { MetaHeader } from '~~/components/header'
 import { RainbowKitCustomConnectButton } from '~~/components/scaffold-eth'
 import { MyHoldings } from '~~/components/simpleNFT'
 import { useScaffoldContractRead, useScaffoldContractWrite } from '~~/hooks/scaffold-eth'
 import { notification } from '~~/utils/scaffold-eth'
 import { ipfsClient } from '~~/utils/simpleNFT'
-import nftsMetadata from '~~/utils/simpleNFT/nftsMetadata'
+import { badgesMetadata } from '~~/utils/simpleNFT/nftsMetadata'
 
-export default function MyNFTs() {
+export default function MyAchievements() {
   const { address: connectedAddress, isConnected, isConnecting } = useAccount()
+  const type = 'achievement'
 
   const { writeAsync: mintItem } = useScaffoldContractWrite({
     contractName: 'ModeMasterMind',
@@ -29,7 +30,9 @@ export default function MyNFTs() {
     if (tokenIdCounter === undefined) return
 
     const tokenIdCounterNumber = parseInt(tokenIdCounter.toString())
-    const currentTokenMetaData = nftsMetadata[tokenIdCounterNumber % nftsMetadata.length]
+    const badgesByTopic = badgesMetadata.filter(badge => badge.type === type)
+    console.log('achievements', badgesByTopic)
+    const currentTokenMetaData = badgesByTopic[tokenIdCounterNumber % badgesByTopic.length]
     const notificationId = notification.loading('Uploading to IPFS')
     try {
       const uploadedItem = await ipfsClient.add(JSON.stringify(currentTokenMetaData))
@@ -61,13 +64,10 @@ export default function MyNFTs() {
         {!isConnected || isConnecting ? (
           <RainbowKitCustomConnectButton />
         ) : (
-          <>
-            <BadgeButton label="Mint" onClick={handleMintItem} />
-            <AchievementButton onClick={handleMintItem} />
-          </>
+          <AchievementButton onClick={handleMintItem} />
         )}
       </div>
-      <MyHoldings />
+      <MyHoldings type={type} />
     </>
   )
 }
