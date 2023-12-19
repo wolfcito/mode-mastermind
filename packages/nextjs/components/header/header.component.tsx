@@ -1,7 +1,7 @@
 import React, { useCallback, useRef, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { ArrowPathIcon, Bars3Icon, BugAntIcon, RocketLaunchIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon } from '@heroicons/react/24/outline'
 import { FaucetButton, RainbowKitCustomConnectButton } from '~~/components/scaffold-eth'
 import { useOutsideClick } from '~~/hooks/scaffold-eth'
 import { ModeLogoIcon } from '~~/icons'
@@ -34,23 +34,17 @@ export function Header() {
   const navLinks = (
     <>
       <li>
-        <NavLink href="/badges">
-          {/* <RocketLaunchIcon className="w-4 h-4" /> */}
-          Achievements
-        </NavLink>
+        <NavLink href="/badge">Badges</NavLink>
       </li>
       <li>
-        <NavLink href="/transfers">
-          {/* <ArrowPathIcon className="w-4 h-4" /> */}
-          Transfers
-        </NavLink>
+        <NavLink href="/achievement">Achievements</NavLink>
+      </li>
+      <li>
+        <NavLink href="/transfers">Transfers</NavLink>
       </li>
 
       <li>
-        <NavLink href="/debug">
-          {/* <BugAntIcon className="w-4 h-4" /> */}
-          Debug Contracts
-        </NavLink>
+        <NavLink href="/debug">Debug Contracts</NavLink>
       </li>
     </>
   )
