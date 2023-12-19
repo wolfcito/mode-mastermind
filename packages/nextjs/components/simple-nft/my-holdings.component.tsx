@@ -12,7 +12,7 @@ export interface Collectible extends Partial<NFTMetaData> {
   owner: string
 }
 
-export const MyHoldings = ({ type = 'badge' }: { type?: string }) => {
+export function MyHoldings({ type = 'badge' }: { type?: string }) {
   const { address: connectedAddress } = useAccount()
   const [myAllCollectibles, setMyAllCollectibles] = useState<Collectible[]>([])
   const [allCollectiblesLoading, setAllCollectiblesLoading] = useState(false)
