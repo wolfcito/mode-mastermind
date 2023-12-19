@@ -1,2 +1,2 @@
-export * from "./nftsMetadata";
-export * from "./ipfs";
+export * from './nftsMetadata'
+export * from './ipfs'
