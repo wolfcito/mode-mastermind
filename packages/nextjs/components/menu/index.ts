@@ -1,5 +1,1 @@
-import MenuMain from './menuGrid'
-
-export {
-    MenuMain
-}
+export * from './menu-grid'
