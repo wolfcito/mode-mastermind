@@ -1,12 +1,7 @@
-import Image from 'next/image'
-import { nanoid } from 'nanoid'
-import { DidacticContentCoverflow } from '~~/components/carousel-didactic-content'
-import { FooterDecorator } from '~~/components/footer'
 import { MetaHeader } from '~~/components/header'
 import { MenuMain } from '~~/components/menu'
-import { HOME_ROADMAP } from '~~/constants'
 
-export default function Home() {
+export default function Trivia() {
   return (
     <>
       <MetaHeader />
