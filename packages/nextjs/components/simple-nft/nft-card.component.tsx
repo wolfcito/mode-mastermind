@@ -6,13 +6,17 @@ import { nanoid } from 'nanoid'
 
 export function NFTCard({ nft }: { nft: Collectible }) {
   return (
-    <div className="max-w-sm shadow-lg card card-compact bg-base-100 shadow-secondary">
-      <figure className="relative">
+    <div
+      className={clsx('max-w-sm card card-compact', {
+        'shadow-lg shadow-secondary': nft.type !== 'badge',
+      })}
+    >
+      <figure className="z-10">
         <Image
           src={nft.image as string}
-          alt="NFT Image"
+          alt={`${nft.type} image`}
           className={clsx(
-            'object-cover h-60',
+            'object-cover h-60 drop-shadow-[0_35px_35px_rgba(223,254,0,1)]',
             { 'max-w-sm pt-4': nft.type === 'badge' },
             { 'w-full ': nft.type !== 'badge' },
           )}
