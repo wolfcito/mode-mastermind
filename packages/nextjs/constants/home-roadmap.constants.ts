@@ -4,20 +4,21 @@ export const HOME_ROADMAP: HomeRoadmapProps[] = [
   {
     description:
       "At Mode Mastermind, we're on a mission to build a brighter future. We believe education is key, both for our minds and our planet",
-    image: '/assets/mode/separator.png',
+    image: '/assets/mode/separator-one.png',
   },
   {
     description:
-      "Mode Mastermind is more than just a game - it's a movement. We're building a community of empowered individuals ready to make a real difference. Join us, learn, play, and be a part of the change!",
-    image: '/assets/mode/separator.png',
+      'Challenge yourself with mind-boggling trivia, earn badges as you conquer each level, and strive for epic achievements.',
+    image: '/assets/mode/separator-two.png',
   },
   {
     description:
-      "Stay tuned for exciting updates! Follow us on social media for upcoming workshops, events, and community challenges. Together, let's build a brighter future, one trivia question at a time.",
-    image: '/assets/mode/separator.png',
+      'Challenge yourself with mind-boggling trivia, earn badges as you conquer each level, and strive for epic achievements.',
+    image: '/assets/mode/separator-three.png',
   },
   {
-    description: '#ModeMastermind #PlayfulLearning #BrainHealth #Web3Education #EmpoweredFuture',
-    image: '/assets/mode/separator.png',
+    description:
+      'Challenge yourself with mind-boggling trivia, earn badges as you conquer each level, and strive for epic achievements.',
+    image: '/assets/mode/separator-one.png',
   },
 ]
