@@ -77,19 +77,13 @@ export function MyHoldings({ type = 'badge' }: { type?: string }) {
       </div>
     )
 
+  if (myAllCollectibles.length === 0) return null
+
   return (
-    <>
-      {myAllCollectibles.length === 0 ? (
-        <div className="flex items-center justify-center mt-10">
-          <div className="text-2xl text-primary-content">What are you waiting for to get your {type}?</div>
-        </div>
-      ) : (
-        <div className="flex flex-wrap justify-center gap-4 px-5 my-8">
-          {myAllCollectibles.map(item => (
-            <NFTCard nft={item} key={item.id} />
-          ))}
-        </div>
-      )}
-    </>
+    <div className="flex flex-wrap justify-center gap-4 px-5 my-8">
+      {myAllCollectibles.map(item => (
+        <NFTCard nft={item} key={item.id} />
+      ))}
+    </div>
   )
 }

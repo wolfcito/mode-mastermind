@@ -40,7 +40,7 @@ export function Header() {
         <NavLink href="/achievement">Achievements</NavLink>
       </li>
       <li>
-        <NavLink href="/transfers">Transfers</NavLink>
+        <NavLink href="/activity">Activity</NavLink>
       </li>
 
       <li>

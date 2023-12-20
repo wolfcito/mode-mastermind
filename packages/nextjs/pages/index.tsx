@@ -1,5 +1,7 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { nanoid } from 'nanoid'
+import { BadgeButton } from '~~/components/button'
 import { MetaHeader } from '~~/components/header'
 import { HOME_ROADMAP } from '~~/constants'
 import { BadgeButton } from '~~/components/button'
@@ -21,7 +23,7 @@ export default function Home() {
               console.log("Play Now")
             } } />
           </div>
-
+        
           {HOME_ROADMAP.map(item => (
             <div className="flex flex-col items-center justify-center" key={nanoid()}>
               <div className="flex flex-col items-center justify-center max-w-lg">

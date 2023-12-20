@@ -3,7 +3,7 @@ import { Address } from '~~/components/scaffold-eth'
 import { Spinner } from '~~/components/spinner/spinner.component'
 import { useScaffoldEventHistory } from '~~/hooks/scaffold-eth'
 
-export default function Transfers() {
+export default function Activity() {
   const { data: transferEvents, isLoading } = useScaffoldEventHistory({
     contractName: 'ModeMasterMind',
     eventName: 'Transfer',
@@ -23,8 +23,8 @@ export default function Transfers() {
       <MetaHeader />
       <div className="flex flex-col items-center flex-grow pt-10">
         <div className="px-5">
-          <h1 className="mb-8 text-center">
-            <span className="block text-4xl font-bold">All Transfers Events</span>
+          <h1 className="flex flex-col w-full mb-6 text-center">
+            <span className="text-6xl font-VT323">Degen Master Activity</span>
           </h1>
         </div>
         <div className="overflow-x-auto shadow-lg">
