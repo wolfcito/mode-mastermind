@@ -1,7 +1,10 @@
 import Image from 'next/image'
+import { DidacticContentCoverflow } from '~~/components/carousel-didactic-content'
+import { FooterDecorator } from '~~/components/footer'
 import { nanoid } from 'nanoid'
 import { MetaHeader } from '~~/components/header'
 import { HOME_ROADMAP } from '~~/constants'
+import { MenuMain } from '~~/components/menu'
 
 export default function Home() {
   return (
@@ -30,6 +33,8 @@ export default function Home() {
               </div>
             </div>
           ))}
+          <MenuMain />
+          <FooterDecorator />
         </div>
       </main>
     </>
