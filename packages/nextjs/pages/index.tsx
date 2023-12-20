@@ -1,7 +1,9 @@
 import Image from 'next/image'
 import { DidacticContentCoverflow } from '~~/components/carousel-didactic-content'
 import { FooterDecorator } from '~~/components/footer'
+import { nanoid } from 'nanoid'
 import { MetaHeader } from '~~/components/header'
+import { HOME_ROADMAP } from '~~/constants'
 
 export default function Home() {
   return (
@@ -12,34 +14,30 @@ export default function Home() {
           <h1 className="w-full mb-6 text-center">
             <span className="text-6xl font-VT323">LEARN MODE AND UNLOCK RARE BADGES</span>
           </h1>
-          <div className="flex flex-col items-center justify-center">
-            <div className="flex flex-col items-center max-w-lg">
-              <p className="mt-8 text-2xl font-light text-center font-ibm-mono text-slate-400">
-                Challenge yourself with mind-boggling trivia, earn badges as you conquer each level, and strive for epic
-                achievements.
-              </p>
-              <Image
-                src="/assets/mode/separator.png"
-                width="50"
-                height="50"
-                alt="challenge banner"
-                priority
-                className="object-contain w-12 h-12"
-              />
-              <p className="mt-8 text-2xl font-light text-center font-ibm-mono text-slate-400">
-                Your journey to becoming a Mode Mastermind begins here! Challenge yourself with mind-boggling trivia,
-                earn badges as you conquer each level, and strive for epic achievements. Your journey to becoming a Mode
-                Mastermind begins here! Challenge yourself with mind-boggling trivia, earn badges as you conquer each
-                level, and strive for epic achievements. Your journey to becoming a Mode Mastermind begins here!
-                Challenge yourself with mind-boggling trivia, earn badges as you conquer each level, and strive for epic
-                achievements. Your journey to becoming a Mode Mastermind begins here!
-              </p>
-            </div>
-            <section>
-              <DidacticContentCoverflow />
-            </section>
-            <FooterDecorator />
-          </div>
+
+          {HOME_ROADMAP.map(item => (
+            <>
+              <div className="flex flex-col items-center justify-center" key={nanoid()}>
+                <div className="flex flex-col items-center justify-center max-w-lg">
+                  <p className="mt-8 text-2xl font-light text-center font-ibm-mono text-neutral-400">
+                    {item.description}
+                  </p>
+                  <Image
+                    src={item.image}
+                    width="50"
+                    height="50"
+                    alt="challenge banner"
+                    priority
+                    className="object-contain w-12 h-12"
+                  />
+                </div>
+              </div>
+              <section>
+                <DidacticContentCoverflow />
+              </section>
+              <FooterDecorator />
+            </>
+          ))}
         </div>
       </main>
     </>

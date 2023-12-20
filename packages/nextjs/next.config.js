@@ -10,10 +10,13 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  webpack: config => {
-    config.resolve.fallback = { fs: false, net: false, tls: false };
-    return config;
+  images: {
+    domains: ['yellow-rotten-planarian-252.mypinata.cloud'],
   },
-};
+  webpack: config => {
+    config.resolve.fallback = { fs: false, net: false, tls: false }
+    return config
+  },
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig

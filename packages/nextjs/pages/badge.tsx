@@ -1,14 +1,14 @@
 import { useAccount } from 'wagmi'
-import { Button } from '~~/components/button'
+import { BadgeButton } from '~~/components/button'
 import { MetaHeader } from '~~/components/header'
 import { RainbowKitCustomConnectButton } from '~~/components/scaffold-eth'
-import { MyHoldings } from '~~/components/simpleNFT'
+import { MyHoldings } from '~~/components/simple-nft'
 import { useScaffoldContractRead, useScaffoldContractWrite } from '~~/hooks/scaffold-eth'
 import { notification } from '~~/utils/scaffold-eth'
 import { ipfsClient } from '~~/utils/simpleNFT'
-import nftsMetadata from '~~/utils/simpleNFT/nftsMetadata'
+import { badgesMetadata } from '~~/utils/simpleNFT/nftsMetadata'
 
-export default function MyNFTs() {
+export default function MyBagdes() {
   const { address: connectedAddress, isConnected, isConnecting } = useAccount()
 
   const { writeAsync: mintItem } = useScaffoldContractWrite({
@@ -29,7 +29,9 @@ export default function MyNFTs() {
     if (tokenIdCounter === undefined) return
 
     const tokenIdCounterNumber = parseInt(tokenIdCounter.toString())
-    const currentTokenMetaData = nftsMetadata[tokenIdCounterNumber % nftsMetadata.length]
+    const badgesByTopic = badgesMetadata.filter(badge => badge.type === 'badge')
+    console.log('badges', badgesByTopic)
+    const currentTokenMetaData = badgesByTopic[tokenIdCounterNumber % badgesByTopic.length]
     const notificationId = notification.loading('Uploading to IPFS')
     try {
       const uploadedItem = await ipfsClient.add(JSON.stringify(currentTokenMetaData))
@@ -53,7 +55,7 @@ export default function MyNFTs() {
       <div className="flex flex-col items-center pt-10">
         <div className="px-5">
           <h1 className="mb-8 text-center">
-            <span className="block text-4xl font-bold">Achievements</span>
+            <span className="block text-4xl font-bold">Badges</span>
           </h1>
         </div>
       </div>
@@ -61,7 +63,7 @@ export default function MyNFTs() {
         {!isConnected || isConnecting ? (
           <RainbowKitCustomConnectButton />
         ) : (
-          <Button label="Mint Badge" onClick={handleMintItem} />
+          <BadgeButton label="Mint" onClick={handleMintItem} />
         )}
       </div>
       <MyHoldings />

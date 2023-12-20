@@ -12,9 +12,9 @@ import {
   DocumentDuplicateIcon,
   QrCodeIcon,
 } from '@heroicons/react/24/outline'
+import { BadgeButton } from '~~/components/button'
 import { Address, Balance, BlockieAvatar } from '~~/components/scaffold-eth'
 import { useAutoConnect, useNetworkColor } from '~~/hooks/scaffold-eth'
-import { PlayIcon } from '~~/icons'
 import { getBlockExplorerAddressLink, getTargetNetwork } from '~~/utils/scaffold-eth'
 
 /**
@@ -40,12 +40,7 @@ export const RainbowKitCustomConnectButton = () => {
           <>
             {(() => {
               if (!connected) {
-                return (
-                  <button className="normal-case btn btn-secondary btn-sm" onClick={openConnectModal} type="button">
-                    <PlayIcon />
-                    Play me
-                  </button>
-                )
+                return <BadgeButton onClick={openConnectModal} label="Connect Wallet" />
               }
 
               if (chain.unsupported || chain.id !== configuredNetwork.id) {
