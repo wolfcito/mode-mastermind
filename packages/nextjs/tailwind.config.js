@@ -95,6 +95,7 @@ module.exports = {
         'ibm-mono': ['IBM Plex Mono', 'monospace'],
         'ibm-sans': ['IBM Plex Sans', 'sans-serif'],
         VT323: ['VT323', 'monospace'],
+        press: ["'Press Start 2P'", 'monospace'],
       },
       boxShadow: {
         center: '0 0 12px -2px rgb(0 0 0 / 0.05)',
@@ -117,6 +118,18 @@ module.exports = {
         grow: 'grow 5s linear infinite',
         'pulse-fast': 'pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         zoom: 'zoom 1s ease infinite',
+        scroll1: 'scroll1 25s linear infinite',
+        scroll2: 'scroll2 25s linear infinite',
+      },
+      keyframes: {
+        scroll1: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
+        scroll2: {
+          '0%': { transform: 'translateX(100%)' },
+          '100%': { transform: 'translateX(0%)' },
+        },
       },
     },
   },
