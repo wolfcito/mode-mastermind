@@ -12,7 +12,7 @@ export default function MyAchievements() {
       <div className="flex flex-col items-center pt-10">
         <div className="px-5">
           <h1 className="flex flex-col w-full mb-6 text-center">
-            <span className="text-5xl font-VT323">Epic Achievement Gallery</span>
+            <span className="text-5xl font-VT323">You are now a Mode Master</span>
           </h1>
         </div>
       </div>
