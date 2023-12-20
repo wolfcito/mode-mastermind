@@ -8,10 +8,11 @@ import 'swiper/css/navigation';
 
 import styles from "~~/styles/runway-didactic-content.module.css"
 import useRunwayContentDidactic from '~~/hooks/content-didactic/useRunwayContentDidactic';
+import SwiperSlideContent from './swiper-slide-content.component';
 
 
 const RunwayContentDidactic = () => {
-    const { } = useRunwayContentDidactic();
+    const { swiperSlides } = useRunwayContentDidactic();
     return (
         <Swiper
             pagination={{
@@ -21,14 +22,13 @@ const RunwayContentDidactic = () => {
             modules={[Pagination, Navigation]}
             className={styles.swiper}
         >
-            <SwiperSlide>Slide 1</SwiperSlide>
-            <SwiperSlide>Slide 2</SwiperSlide>
-            <SwiperSlide>Slide 3</SwiperSlide>
-            <SwiperSlide>Slide 4</SwiperSlide>
-            <SwiperSlide>Slide 5</SwiperSlide>
-            <SwiperSlide>Slide 6</SwiperSlide>
-            <SwiperSlide>Slide 7</SwiperSlide>
-            <SwiperSlide>Slide 8</SwiperSlide>
+            {
+                swiperSlides.map((slide) => (
+                    <SwiperSlide key={slide.id}>
+                        <SwiperSlideContent slide={slide} />
+                    </SwiperSlide>
+                ))
+            }
         </Swiper>
     );
 }
