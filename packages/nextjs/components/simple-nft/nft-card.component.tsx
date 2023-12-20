@@ -39,7 +39,7 @@ export function NFTCard({ nft }: { nft: Collectible }) {
           </div>
         </div>
         <div className="flex flex-col justify-center mt-1">
-          <p className="my-0 text-lg">{nft.description}</p>
+          <p className="my-0 text-base font-light">{nft.description}</p>
         </div>
         <div className="flex items-center mt-1 space-x-3">
           <span className="text-lg font-semibold">Owner : </span>
