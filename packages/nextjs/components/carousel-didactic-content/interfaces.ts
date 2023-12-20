@@ -1,5 +1,10 @@
 import { ContentDidacticSwiperSlide } from "~~/contexts/ContentDidacticById/interfaces";
 
+export interface  DidacticContentAttributes {
+    area: string;
+    value: number;
+}
+
 export interface DidacticContentCoverflowCardProps {
     id: string,
     title: string,
@@ -9,8 +14,10 @@ export interface DidacticContentCoverflowCardProps {
         height: number
     },
     description: string,
-    link: string
+    link: string;
+    attributes: DidacticContentAttributes
 }
+
 export interface QuizzAnswer {
     label: string;
     name: string;

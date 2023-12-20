@@ -4,6 +4,7 @@ import { FooterDecorator } from '~~/components/footer'
 import { nanoid } from 'nanoid'
 import { MetaHeader } from '~~/components/header'
 import { HOME_ROADMAP } from '~~/constants'
+import { MenuMain } from '~~/components/menu'
 
 export default function Home() {
   return (
@@ -16,28 +17,24 @@ export default function Home() {
           </h1>
 
           {HOME_ROADMAP.map(item => (
-            <>
-              <div className="flex flex-col items-center justify-center" key={nanoid()}>
-                <div className="flex flex-col items-center justify-center max-w-lg">
-                  <p className="mt-8 text-2xl font-light text-center font-ibm-mono text-neutral-400">
-                    {item.description}
-                  </p>
-                  <Image
-                    src={item.image}
-                    width="50"
-                    height="50"
-                    alt="challenge banner"
-                    priority
-                    className="object-contain w-12 h-12"
-                  />
-                </div>
+            <div className="flex flex-col items-center justify-center" key={nanoid()}>
+              <div className="flex flex-col items-center justify-center max-w-lg">
+                <p className="mt-8 text-2xl font-light text-center font-ibm-mono text-neutral-400">
+                  {item.description}
+                </p>
+                <Image
+                  src={item.image}
+                  width="50"
+                  height="50"
+                  alt="challenge banner"
+                  priority
+                  className="object-contain w-12 h-12"
+                />
               </div>
-              <section>
-                <DidacticContentCoverflow />
-              </section>
-              <FooterDecorator />
-            </>
+            </div>
           ))}
+          <MenuMain />
+          <FooterDecorator />
         </div>
       </main>
     </>
