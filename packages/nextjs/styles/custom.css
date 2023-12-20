@@ -199,10 +199,10 @@
 
 .loader {
   position: relative;
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
-  background: linear-gradient(45deg, transparent, transparent 30%, #e5f403);
+  background: linear-gradient(45deg, transparent, transparent 30%, #DFFE00);
   animation: loader 2s linear infinite;
 }
 
@@ -237,7 +237,7 @@
   left: 0;
   bottom: 0;
   right: 0;
-  background: linear-gradient(45deg, transparent, transparent 30%, #e5f403);
+  background: linear-gradient(45deg, transparent, transparent 30%, #DFFE00);
   border-radius: 50%;
   z-index: 1;
   filter: blur(30px);
