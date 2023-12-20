@@ -151,7 +151,7 @@ const courseMock =  {
             width: 150
         },
         tags: ["web3.0", "blockchain"],
-        title: "Badget 1"
+        title: "Badget 1",
     },
     id: "Blockchain-1",
     slides: [

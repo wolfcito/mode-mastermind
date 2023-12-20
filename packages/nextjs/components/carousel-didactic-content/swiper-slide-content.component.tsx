@@ -1,10 +1,18 @@
 import Image from "next/image";
+import { useSwiper } from 'swiper/react';
 import { ContentDidacticSlideTypes } from "~~/contexts/ContentDidacticById/interfaces";
 import { SwiperSlideContentProps } from "./interfaces";
 import styles from "~~/styles/swiper-slide-content.module.css"
 import { Button } from "../button";
+import { useContext, useState } from "react";
+import { Toast } from "../alerts/toast.component";
+import { ContentDidacticByIdContext } from "~~/contexts/ContentDidacticById";
 
 const SwiperSlideContent = ({ slide }: SwiperSlideContentProps) => {
+    const pageContext = useContext(ContentDidacticByIdContext);
+    const [ isCorrectAns, setIsCorrectAns ] = useState<boolean>(false)
+    const swiper = useSwiper();
+
     switch (slide.type) {
         case ContentDidacticSlideTypes.INFORMATIVE:
             return (
@@ -19,6 +27,12 @@ const SwiperSlideContent = ({ slide }: SwiperSlideContentProps) => {
                             <div className="mb-8">
                                 <h4 className="text-6xl mb-2 text-center font-VT323">{slide.title}</h4>
                                 <p className="text-lime-300 text-base text-justify">{slide.desciption}</p>
+                            </div>
+                            <div>
+                                <Button label="Take Quiz!" onClick={() => {
+                                    pageContext.dispatch.setProgress(pageContext.value.progress + 5);
+                                    swiper.slideNext()
+                                }} />
                             </div>
                         </div>
                     </div>
@@ -52,7 +66,9 @@ const SwiperSlideContent = ({ slide }: SwiperSlideContentProps) => {
                                                                             type="radio"
                                                                             value={answer.value}
                                                                             name={answer.name}
-                                                                            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-lime-500 dark:focus:ring-lime-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                                                                            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-lime-500 dark:focus:ring-lime-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" 
+                                                                            onChange={() => setIsCorrectAns(answer.isCorrect)}
+                                                                            />
                                                                         <label htmlFor="list-radio-license"
                                                                             className="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                                                                             {answer.label}
@@ -69,6 +85,20 @@ const SwiperSlideContent = ({ slide }: SwiperSlideContentProps) => {
                                 }
 
                             </div>
+
+                            <div>
+                                <Button label="Check answer" onClick={() => {
+                                    Toast.fire({
+                                        icon: isCorrectAns? "success" : "error",
+                                        title: isCorrectAns? "Good job!": "Try Again 😪",
+                                    })
+
+                                    if(isCorrectAns) {
+                                        pageContext.dispatch.setProgress(pageContext.value.progress + 20);
+                                        swiper.slideNext()
+                                    }
+                                }} />
+                            </div>
                         </div>
                     </div>
                 </article>
@@ -79,7 +109,6 @@ const SwiperSlideContent = ({ slide }: SwiperSlideContentProps) => {
                 <div className="flex flex-col content-center justify-center ">
                     <article className="flex h-[75vh] content-center justify-center ">
                         <div className={`max-w-sm w-[20vw] rounded overflow-hidden shadow-lg border borger-lime-600 my-6 flex flex-col content-center justify-center  ${styles.badget}`}>
-                            
                             <Image
                                 className="my-8 block m-auto "
                                 src={slide.badget.img.path}

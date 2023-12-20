@@ -64,5 +64,6 @@ export interface  DidacticContentClasses {
 
 
 export interface SwiperSlideContentProps {
-    slide : ContentDidacticSwiperSlide
+    slide : ContentDidacticSwiperSlide,
+    allSlides: ContentDidacticSwiperSlide[]
 }
