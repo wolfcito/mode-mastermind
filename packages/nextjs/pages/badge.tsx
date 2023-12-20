@@ -72,7 +72,7 @@ export default function MyBagdes() {
       <div className="flex flex-col items-center pt-10">
         <div className="px-5">
           <h1 className="flex flex-col w-full mb-6 text-center">
-            <span className="text-5xl font-VT323">Badges Gallery</span>
+            <span className="text-5xl font-VT323">Level Up Badges</span>
           </h1>
         </div>
       </div>
