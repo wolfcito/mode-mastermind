@@ -1,14 +1,18 @@
 import Image from 'next/image'
-import Link from 'next/link'
+import { useAccount } from 'wagmi'
 import { nanoid } from 'nanoid'
 import { BadgeButton } from '~~/components/button'
 import { MetaHeader } from '~~/components/header'
 import { HOME_ROADMAP } from '~~/constants'
-import { BadgeButton } from '~~/components/button'
 import { Slider } from '~~/components/animation'
 import { ModeIcon } from '~~/icons'
+import { useRouter } from 'next/navigation'
+import { notification } from '~~/utils/scaffold-eth'
 
 export default function Home() {
+  const router = useRouter()
+  const { isConnected } = useAccount()
+
   return (
     <>
       <MetaHeader />
@@ -20,10 +24,14 @@ export default function Home() {
 
           <div className='flex justify-center mt-3 mb-6'>
             <BadgeButton label=" Play Now" onClick={function (): void {
-              console.log("Play Now")
-            } } />
+              if (!isConnected) {
+                notification.warning("Connect your Wallet");
+                return
+              }
+              router.push("/trivia");
+            }} />
           </div>
-        
+
           {HOME_ROADMAP.map(item => (
             <div className="flex flex-col items-center justify-center" key={nanoid()}>
               <div className="flex flex-col items-center justify-center max-w-lg">
@@ -43,7 +51,7 @@ export default function Home() {
           ))}
         </div>
         <div className='pointer-events-none w-full h-2/3 bg-gradient-to-t from-black to-transparent fixed bottom-0 flex items-end'>
-          <Slider/>
+          <Slider />
         </div>
       </main>
     </>
