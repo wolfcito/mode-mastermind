@@ -1,10 +1,9 @@
 import Image from 'next/image'
-import { DidacticContentCoverflow } from '~~/components/carousel-didactic-content'
-import { FooterDecorator } from '~~/components/footer'
+import Link from 'next/link'
 import { nanoid } from 'nanoid'
+import { BadgeButton } from '~~/components/button'
 import { MetaHeader } from '~~/components/header'
 import { HOME_ROADMAP } from '~~/constants'
-import { MenuMain } from '~~/components/menu'
 
 export default function Home() {
   return (
@@ -12,10 +11,22 @@ export default function Home() {
       <MetaHeader />
       <main className="flex flex-col items-center flex-grow pt-10 pb-60">
         <div className="px-5 w-[90%] md:w-[75%]">
-          <h1 className="w-full mb-6 text-center">
-            <span className="text-6xl font-VT323">LEARN MODE AND UNLOCK RARE BADGES</span>
+          <h1 className="flex flex-col items-center w-full mb-6 text-center">
+            <span className="text-6xl font-VT323">LEARN</span>
+            <Image
+              src="/assets/mode-wordmark-primary.png"
+              alt="mode image"
+              width={400}
+              height={100}
+              className="h-auto w-96"
+            />
+            <span className="text-6xl font-VT323">AND UNLOCK RARE</span>
+            <span className="text-6xl font-VT323">BADGES</span>
           </h1>
 
+          <Link href="/trivia" className="flex justify-center mb-6">
+            <BadgeButton label="Play now" />
+          </Link>
           {HOME_ROADMAP.map(item => (
             <div className="flex flex-col items-center justify-center" key={nanoid()}>
               <div className="flex flex-col items-center justify-center max-w-lg">
@@ -33,8 +44,6 @@ export default function Home() {
               </div>
             </div>
           ))}
-          <MenuMain />
-          <FooterDecorator />
         </div>
       </main>
     </>
