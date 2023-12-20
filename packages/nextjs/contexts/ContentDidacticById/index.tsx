@@ -3,7 +3,7 @@ import { ContentDidacticByIdActions, ContentDidacticByIdProviderProps, ContentDi
 import { MasterClasses } from "~~/constants/didacitc-contnet.constants";
 
 const contextStateInit: ContentDidacticByIdState = {
-    progress: 0,
+    progress: 20,
     contentDidactic: {
         id: "",
         slides: [],
@@ -11,7 +11,7 @@ const contextStateInit: ContentDidacticByIdState = {
             img: {
                 path: "",
                 width: 0,
-                height: 0
+                heigth: 0
             },
             title: "",
             description: "",
@@ -30,7 +30,7 @@ const contextInit : IContentDidacticByIdContext = {
 export const ContentDidacticByIdContext = createContext<IContentDidacticByIdContext>(contextInit);
 
 export const ContentDidacticByIdProvider = ({ children, idContent } : ContentDidacticByIdProviderProps) => {
-    const [progress, setProgress] = useState<number>(0);
+    const [progress, setProgress] = useState<number>(20);
 
     const value: ContentDidacticByIdState = {
         progress,

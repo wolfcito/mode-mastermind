@@ -15,17 +15,13 @@ const RunwayContentDidactic = () => {
     const { swiperSlides } = useRunwayContentDidactic();
     return (
         <Swiper
-            pagination={{
-                type: 'fraction',
-            }}
-            navigation={true}
             modules={[Pagination, Navigation]}
             className={styles.swiper}
         >
             {
                 swiperSlides.map((slide) => (
                     <SwiperSlide key={slide.id}>
-                        <SwiperSlideContent slide={slide} />
+                        <SwiperSlideContent slide={slide} allSlides={swiperSlides} />
                     </SwiperSlide>
                 ))
             }

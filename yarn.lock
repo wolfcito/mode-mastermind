@@ -2573,6 +2573,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@sweetalert2/theme-dark@npm:^5.0.15":
+  version: 5.0.15
+  resolution: "@sweetalert2/theme-dark@npm:5.0.15"
+  checksum: 437f10120272270950125212ef897d8a0572139a41d72991453f776dfb93e121c86fe4d641ad291c6aa3563f3fff27183d3162e40b52c05642201b4345b1b82d
+  languageName: node
+  linkType: hard
+
 "@tanstack/query-core@npm:4.29.14":
   version: 4.29.14
   resolution: "@tanstack/query-core@npm:4.29.14"
@@ -13051,8 +13058,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "se-2@workspace:."
   dependencies:
+    "@sweetalert2/theme-dark": ^5.0.15
     husky: ^8.0.1
     lint-staged: ^13.0.3
+    sweetalert2: ^11.10.1
   languageName: unknown
   linkType: soft
 
@@ -13836,6 +13845,13 @@ __metadata:
   version: 1.0.0
   resolution: "supports-preserve-symlinks-flag@npm:1.0.0"
   checksum: 53b1e247e68e05db7b3808b99b892bd36fb096e6fba213a06da7fab22045e97597db425c724f2bbd6c99a3c295e1e73f3e4de78592289f38431049e1277ca0ae
+  languageName: node
+  linkType: hard
+
+"sweetalert2@npm:^11.10.1":
+  version: 11.10.1
+  resolution: "sweetalert2@npm:11.10.1"
+  checksum: 0e2ad6a278de1d207a138c24c271574b09abbb79ecb4b4047fa8f2ccb9f54232cf6fa48e1c5e6be812a7b3419532461281a4a8f90336d17a6b6b2b4604139f9a
   languageName: node
   linkType: hard
 
