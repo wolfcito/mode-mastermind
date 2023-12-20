@@ -1,5 +1,5 @@
 import { useAccount } from 'wagmi'
-import { BadgeButton } from '~~/components/button'
+import { AchievementButton } from '~~/components/button'
 import { MetaHeader } from '~~/components/header'
 import { RainbowKitCustomConnectButton } from '~~/components/scaffold-eth'
 import { MyHoldings } from '~~/components/simple-nft'
@@ -10,6 +10,9 @@ import { badgesMetadata } from '~~/utils/simpleNFT/nftsMetadata'
 
 export default function MyBagdes() {
   const { address: connectedAddress, isConnected, isConnecting } = useAccount()
+
+  // TODO: use correct structure
+  const badgesCollected = [1, 2]
 
   const { writeAsync: mintItem } = useScaffoldContractWrite({
     contractName: 'ModeMasterMind',
@@ -24,12 +27,12 @@ export default function MyBagdes() {
     cacheOnBlock: true,
   })
 
-  const handleMintItem = async () => {
+  const handleMintItem = async ({ type = 'achievement' }: { type?: string }) => {
     // circle back to the zero item if we've reached the end of the array
     if (tokenIdCounter === undefined) return
 
     const tokenIdCounterNumber = parseInt(tokenIdCounter.toString())
-    const badgesByTopic = badgesMetadata.filter(badge => badge.type === 'badge')
+    const badgesByTopic = badgesMetadata.filter(badge => badge.type === type)
     console.log('badges', badgesByTopic)
     const currentTokenMetaData = badgesByTopic[tokenIdCounterNumber % badgesByTopic.length]
     const notificationId = notification.loading('Uploading to IPFS')
@@ -52,19 +55,29 @@ export default function MyBagdes() {
   return (
     <>
       <MetaHeader />
+      {badgesCollected.length === 3 ? (
+        <div className="flex flex-col items-center pt-10">
+          <h1 className="flex flex-col w-full mb-6 text-center">
+            <span className="text-4xl font-VT323">Epic Achievement</span>
+            <span className="text-4xl font-VT323">Unlocked</span>
+          </h1>
+
+          {isConnected || !isConnecting ? (
+            <div className="flex justify-center">
+              <AchievementButton onClick={() => handleMintItem({ type: 'achievement' })} />
+            </div>
+          ) : null}
+        </div>
+      ) : null}
       <div className="flex flex-col items-center pt-10">
         <div className="px-5">
-          <h1 className="mb-8 text-center">
-            <span className="block text-4xl font-bold">Badges</span>
+          <h1 className="flex flex-col w-full mb-6 text-center">
+            <span className="text-5xl font-VT323">Badges Gallery</span>
           </h1>
         </div>
       </div>
       <div className="flex justify-center">
-        {!isConnected || isConnecting ? (
-          <RainbowKitCustomConnectButton />
-        ) : (
-          <BadgeButton label="Mint" onClick={handleMintItem} />
-        )}
+        {!isConnected || isConnecting ? <RainbowKitCustomConnectButton /> : null}
       </div>
       <MyHoldings />
     </>
