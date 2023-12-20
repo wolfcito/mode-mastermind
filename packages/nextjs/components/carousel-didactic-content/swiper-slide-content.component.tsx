@@ -109,7 +109,6 @@ const SwiperSlideContent = ({ slide }: SwiperSlideContentProps) => {
                 <div className="flex flex-col content-center justify-center ">
                     <article className="flex h-[75vh] content-center justify-center ">
                         <div className={`max-w-sm w-[20vw] rounded overflow-hidden shadow-lg border borger-lime-600 my-6 flex flex-col content-center justify-center  ${styles.badget}`}>
-
                             <Image
                                 className="my-8 block m-auto "
                                 src={slide.badget.img.path}
