@@ -7,7 +7,7 @@ export const DidacticContentCards: DidacticContentCoverflowCardProps[] = [
   //group Blockchain
   {
     id: 'Blockchain-1',
-    title: 'Block Analyst',
+    title: 'Exploring Mode',
     img: {
       path: '/assets/badge-1.png',
       width: 50,
@@ -157,41 +157,41 @@ const courseMock = {
     },
     tags: ['web3.0', 'blockchain'],
     title: 'Badget 1',
-    value: 2,
+    value: 1,
     area: 'Blockchain',
   },
   slides: [
     {
+      title: 'Exploring Mode',
       desciption: `
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      Mode, an Ethereum Layer 2, is designed to encourage and support a cooperative on-chain experience. Its goal is to enable developers and users to grow in a top-tier application ecosystem and be directly rewarded for their contributions through Sequencer Fee Sharing and User Referral fees.
             `,
       img: {
         heigth: 50,
         path: '/assets/mode/mode004.jpg',
         width: 50,
       },
-      title: 'Lorem Ipsum',
       quizz: {
         questions: [
           {
-            statement: 'What is Lorem Ipsum?',
+            statement: 'Choose the best option',
             answers: [
               {
                 isCorrect: true,
-                label: 'Lorem Ipsum is simply dummy text ',
+                label: 'The main goal of Mode is to reduce transaction costs',
                 name: 'input-1',
                 value: '1',
               },
               {
                 isCorrect: false,
-                label: 'It is a long established fact ',
-                name: 'input-1',
-                value: '3',
+                label: 'The Mode Blockchain fosters cooperation through revenue-sharing incentives.',
+                name: 'input-2',
+                value: '2',
               },
               {
                 isCorrect: false,
-                label: 'Contrary to popular belief,',
-                name: 'input-1',
+                label: "Mode operates on Ethereum's Layer 1.",
+                name: 'input-3',
                 value: '3',
               },
             ],
@@ -200,36 +200,36 @@ const courseMock = {
       },
     },
     {
+      title: 'Exploring the Core Features of Mode',
       desciption: `
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      The Mode blockchain showcases several significant features, creating an environment conducive to cooperation and growth. Noteworthy aspects include an on-chain cooperative system for sharing contract revenues, a substantial fee reduction exceeding 95% thanks to Optimism's Bedrock upgrade, and seamless scalability for existing Ethereum applications.
             `,
       img: {
         heigth: 50,
         path: '/assets/mode/mode004.jpg',
         width: 50,
       },
-      title: 'Lorem Ipsum 2',
       quizz: {
         questions: [
           {
-            statement: 'What is Lorem Ipsum?',
+            statement: 'Can you recognize which one is incorrect?',
             answers: [
               {
-                isCorrect: true,
-                label: 'Lorem Ipsum is simply dummy text ',
+                isCorrect: false,
+                label: 'The Mode blockchain shares contract revenues directly with participants.',
                 name: 'input-1',
                 value: '1',
               },
               {
                 isCorrect: false,
-                label: 'It is a long established fact ',
-                name: 'input-1',
-                value: '3',
+                label: "Optimism's Bedrock has reduced fees on Mode by over 95%.",
+                name: 'input-2',
+                value: '2',
               },
               {
-                isCorrect: false,
-                label: 'Contrary to popular belief,',
-                name: 'input-1',
+                isCorrect: true,
+                label: 'Mode facilitates the transition of existing Ethereum applications.',
+                name: 'input-3',
                 value: '3',
               },
             ],
@@ -238,36 +238,36 @@ const courseMock = {
       },
     },
     {
+      title: 'Open Source Principles in Mode',
       desciption: `
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      Mode operates on the OP Stack in collaboration with Optimism, contributing to the growth of Optimism's Superchain ecosystem. The emphasis on open-source principles guides the development of Mode.
             `,
       img: {
         heigth: 50,
         path: '/assets/mode/mode004.jpg',
         width: 50,
       },
-      title: 'Lorem Ipsum 3',
       quizz: {
         questions: [
           {
-            statement: 'What is Lorem Ipsum?',
+            statement: 'Choose the correct answer',
             answers: [
               {
-                isCorrect: true,
-                label: 'Lorem Ipsum is simply dummy text ',
+                isCorrect: false,
+                label: "Mode's development is guided by closed-source principles.",
                 name: 'input-1',
                 value: '1',
               },
               {
-                isCorrect: false,
-                label: 'It is a long established fact ',
-                name: 'input-1',
+                isCorrect: true,
+                label: 'Mode contributes to the growth of the Superchain ecosystem of Ethereum.',
+                name: 'input-2',
                 value: '3',
               },
               {
                 isCorrect: false,
-                label: 'Contrary to popular belief,',
-                name: 'input-1',
+                label: 'Optimism is the sole contributor to the development of the OP Stack.',
+                name: 'input-3',
                 value: '3',
               },
             ],

@@ -123,7 +123,7 @@ export const badgesMetadata: NftsMetadataProps[] = [
       'https://yellow-rotten-planarian-252.mypinata.cloud/ipfs/QmRGzZvBWKXvqVSZ3KX5pL8CihBNhyW3QcKUiRybasXNAY/block1.png',
     image:
       'https://yellow-rotten-planarian-252.mypinata.cloud/ipfs/QmRGzZvBWKXvqVSZ3KX5pL8CihBNhyW3QcKUiRybasXNAY/block1.png',
-    name: 'Block Analyst',
+    name: 'Mode Explorer',
     attributes: [
       {
         trait_type: 'Area',

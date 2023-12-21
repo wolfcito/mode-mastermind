@@ -66,6 +66,7 @@ export function SwiperSlideContent({ slide }: SwiperSlideContentProps) {
 
   switch (slide.type) {
     case ContentDidacticSlideTypes.INFORMATIVE:
+      console.log(slide)
       return (
         <article className="flex h-[70vh] content-center justify-center ">
           <div className="max-w-sm w-[80-vw] lg:max-w-[80vw] lg:min-w-[70vw] lg:flex my-10 px-10 shadow-lg ">
@@ -76,7 +77,7 @@ export function SwiperSlideContent({ slide }: SwiperSlideContentProps) {
             ></div>
             <div className="flex flex-col justify-between w-2/3 p-4 leading-normal bg-black border rounded-b border-lime-300 lg:border lg:border-lime-300 lg:rounded-b-none lg:rounded-r">
               <div className="mb-8">
-                <h4 className="mb-2 text-6xl text-center font-press">{slide.title}</h4>
+                <h4 className="mb-2 text-3xl text-center font-press">{slide.title}</h4>
                 <p className="text-base text-justify text-lime-300">{slide.desciption}</p>
               </div>
               <div>
@@ -103,7 +104,7 @@ export function SwiperSlideContent({ slide }: SwiperSlideContentProps) {
             ></div>
             <div className="flex flex-col justify-between w-2/3 p-4 leading-normal bg-black border rounded-b border-lime-300 lg:border lg:border-lime-300 lg:rounded-b-none lg:rounded-r">
               <div className="mb-8">
-                <h4 className="mb-2 text-6xl text-center font-press">{slide.title}</h4>
+                {/* <h4 className="mb-2 text-3xl text-center font-press">{slide.title}</h4> */}
                 {slide.quizz.questions.map(question => (
                   <label key={nanoid()} className="text-white">
                     {question.statement}
@@ -159,6 +160,8 @@ export function SwiperSlideContent({ slide }: SwiperSlideContentProps) {
 
       currentValueBadge = slide.badget.value
       currentAreaBadge = slide.badget.area
+      console.log('currentValueBadge', currentValueBadge)
+      console.log('currentAreaBadge', currentAreaBadge)
       currentTokenMetaData =
         badgesMetadata.find(badge => {
           return (
