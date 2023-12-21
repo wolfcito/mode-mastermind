@@ -1,18 +1,77 @@
 import { useContext, useState } from 'react'
 import Image from 'next/image'
-import { Toast } from '../alerts/toast.component'
-import { BadgeButton, Button } from '../button'
+import { useRouter } from 'next/navigation'
 import { SwiperSlideContentProps } from './interfaces'
 import { nanoid } from 'nanoid'
 import { useSwiper } from 'swiper/react'
+import { useAccount } from 'wagmi'
+import { Toast } from '~~/components/alerts/toast.component'
+import { BadgeButton } from '~~/components/button'
 import { ContentDidacticByIdContext } from '~~/contexts/ContentDidacticById'
 import { ContentDidacticSlideTypes } from '~~/contexts/ContentDidacticById/interfaces'
+import { useScaffoldContractRead, useScaffoldContractWrite } from '~~/hooks/scaffold-eth'
 import styles from '~~/styles/swiper-slide-content.module.css'
+import { notification } from '~~/utils/scaffold-eth'
+import { ipfsClient } from '~~/utils/simpleNFT'
+import { NftsMetadataProps } from '~~/utils/simpleNFT/nfts-metadata.type'
+import { badgesMetadata } from '~~/utils/simpleNFT/nftsMetadata'
 
 export function SwiperSlideContent({ slide }: SwiperSlideContentProps) {
   const pageContext = useContext(ContentDidacticByIdContext)
   const [isCorrectAns, setIsCorrectAns] = useState<boolean>(false)
   const swiper = useSwiper()
+  const router = useRouter()
+
+  const defaultMetadata: NftsMetadataProps = {
+    type: 'empty',
+    description: '',
+    external_url: '',
+    image: '',
+    name: '',
+    attributes: [],
+  }
+
+  let currentValueBadge: number
+  let currentAreaBadge: string
+  let currentTokenMetaData: NftsMetadataProps
+
+  const { address: connectedAddress, isConnected, isConnecting } = useAccount()
+
+  const { writeAsync: mintItem } = useScaffoldContractWrite({
+    contractName: 'ModeMasterMind',
+    functionName: 'mintItem',
+    args: [connectedAddress, ''],
+  })
+
+  const { data: tokenIdCounter } = useScaffoldContractRead({
+    contractName: 'ModeMasterMind',
+    functionName: 'tokenIdCounter',
+    watch: true,
+    cacheOnBlock: true,
+  })
+
+  const handleMintItem = async ({ currentTokenMetaData }: { currentTokenMetaData: NftsMetadataProps }) => {
+    // circle back to the zero item if we've reached the end of the array
+    if (tokenIdCounter === undefined) return
+
+    const notificationId = notification.loading('Uploading to IPFS')
+    try {
+      const uploadedItem = await ipfsClient.add(JSON.stringify(currentTokenMetaData))
+
+      // First remove previous loading notification and then show success notification
+      notification.remove(notificationId)
+      notification.success('Metadata uploaded to IPFS')
+
+      await mintItem({
+        args: [connectedAddress, uploadedItem.path],
+      })
+
+      router.push('/badge')
+    } catch (error) {
+      notification.remove(notificationId)
+      console.error(error)
+    }
+  }
 
   switch (slide.type) {
     case ContentDidacticSlideTypes.INFORMATIVE:
@@ -26,7 +85,7 @@ export function SwiperSlideContent({ slide }: SwiperSlideContentProps) {
             ></div>
             <div className="flex flex-col justify-between w-2/3 p-4 leading-normal bg-black border rounded-b border-lime-300 lg:border lg:border-lime-300 lg:rounded-b-none lg:rounded-r">
               <div className="mb-8">
-                <h4 className="mb-2 text-6xl text-center font-VT323">{slide.title}</h4>
+                <h4 className="mb-2 text-6xl text-center font-press">{slide.title}</h4>
                 <p className="text-base text-justify text-lime-300">{slide.desciption}</p>
               </div>
               <div>
@@ -86,57 +145,83 @@ export function SwiperSlideContent({ slide }: SwiperSlideContentProps) {
                 ))}
               </div>
 
-              <div>
-                <BadgeButton
-                  label="Check answer"
-                  onClick={() => {
-                    Toast.fire({
-                      icon: isCorrectAns ? 'success' : 'error',
-                      title: isCorrectAns ? 'Good job!🌟' : "Don't worry, keep trying 🤔",
-                    })
+              <BadgeButton
+                label="Check answer"
+                onClick={() => {
+                  Toast.fire({
+                    icon: isCorrectAns ? 'success' : 'error',
+                    title: isCorrectAns ? 'Good job!🌟' : "Don't worry, keep trying 🤔",
+                  })
 
-                    if (isCorrectAns) {
-                      pageContext.dispatch.setProgress(pageContext.value.progress + 20)
-                      swiper.slideNext()
-                    }
-                  }}
-                />
-              </div>
+                  if (isCorrectAns) {
+                    pageContext.dispatch.setProgress(pageContext.value.progress + 20)
+                    swiper.slideNext()
+                  }
+                }}
+              />
             </div>
           </div>
         </article>
       )
     case ContentDidacticSlideTypes.BAGDET:
+      // console.log('slide', { slide })
+
+      currentValueBadge = slide.badget.value
+      currentAreaBadge = slide.badget.area
+      currentTokenMetaData =
+        badgesMetadata.find(badge => {
+          return (
+            badge.type === 'badge' &&
+            badge.attributes.some(
+              atributo => atributo.trait_type === 'Ability' && atributo.value === currentValueBadge,
+            ) &&
+            badge.attributes.some(atributo => atributo.trait_type === 'Area' && atributo.value === currentAreaBadge)
+          )
+        }) ?? defaultMetadata
+
+      if (currentTokenMetaData.type === 'empty') {
+        console.error('currentTokenMetaData is undefined')
+        return null
+      }
+
       return (
-        <div className="flex flex-col content-center justify-center ">
-          <article className="flex h-[75vh] content-center justify-center ">
+        <div className="flex content-center justify-center mt-3">
+          <article className="flex flex-col items-center content-center justify-center">
+            <h1 className="my-6">
+              <span className="text-4xl font-press">Badge Unlocked</span>
+            </h1>
             <div
-              className={`max-w-sm w-[20vw] rounded overflow-hidden shadow-lg border borger-lime-600 my-6 flex flex-col content-center justify-center  ${styles.badget}`}
+              className={` max-w-sm w-full rounded overflow-hidden shadow-lg my-6 flex flex-col content-center justify-center items-center ${styles.badget}`}
             >
               <Image
                 className="block m-auto my-8 "
-                src={slide.badget.img.path}
-                alt={slide.badget.title}
-                width={slide.badget.img.width}
-                height={slide.badget.img.heigth}
+                src={currentTokenMetaData.image}
+                alt={currentTokenMetaData.name}
+                width={150}
+                height={150}
               />
-              <div className="px-6 py-4 bg-purple-300 border-t border-b border-purple-600">
-                <div className="mb-2 text-xl font-bold text-black">{slide.badget.title}</div>
-                <p className="text-base text-black ">{slide.badget.description}</p>
-              </div>
-              <div className="px-6 pt-4 pb-2">
-                {slide.badget.tags.map(tag => (
-                  <span
-                    key={nanoid()}
-                    className="inline-block px-3 py-1 mb-2 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full"
-                  >
-                    #{tag}
-                  </span>
-                ))}
+              <div className="px-6 py-4">
+                <div className="flex items-center justify-between">
+                  <div className="text-xl font-bold text-neutral-content">{currentTokenMetaData.name}</div>
+                  <div className="px-6 pt-4 pb-2">
+                    {currentTokenMetaData.attributes.map(item => {
+                      if (item.trait_type === 'Area')
+                        return (
+                          <span className="inline-block px-3 py-1 mb-2 mr-2 text-sm font-semibold rounded-full text-secondary-content bg-neutral">
+                            {item.value}
+                          </span>
+                        )
+                    })}
+                  </div>
+                </div>
+                <p className="text-base text-current">{currentTokenMetaData.description}</p>
               </div>
 
-              <div className="px-6 pt-4 pb-2">
-                <BadgeButton />
+              <div className="px-6 pt-4 mb-4">
+                <BadgeButton
+                  label="Claim Badge"
+                  onClick={() => handleMintItem({ currentTokenMetaData: currentTokenMetaData })}
+                />
               </div>
             </div>
           </article>

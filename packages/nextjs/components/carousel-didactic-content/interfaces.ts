@@ -49,6 +49,8 @@ export interface DidacticContentClasses {
   id: string
   slides: Slide[]
   badget: {
+    area: string
+    value: number
     img: {
       path: string
       width: number

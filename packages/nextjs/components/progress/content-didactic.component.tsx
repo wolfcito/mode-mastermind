@@ -72,17 +72,10 @@ export function ContentDidacticProgressBar() {
         </>
       )}
       {pageContext.value.progress > 90 && (
-        <>
-          <div
-            className="bg-neutral-content p-0.5 text-center  font-medium leading-none "
-            style={{ width: '95%' }}
-          ></div>
-
-          <div
-            className="bg-neutral p-0.5 text-center text-xs font-medium leading-none text-primary-100 rounded"
-            style={{ width: '5%' }}
-          ></div>
-        </>
+        <div
+          className="bg-neutral p-0.5 text-center text-xs font-medium leading-none text-primary-100 rounded"
+          style={{ width: '100%' }}
+        ></div>
       )}
     </div>
   )
