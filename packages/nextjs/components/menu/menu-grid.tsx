@@ -5,7 +5,7 @@ import { BadgeButton } from '../button'
 import clsx from 'clsx'
 import { nanoid } from 'nanoid'
 import { DidacticContentCards } from '~~/constants/didacitc-contnet.constants'
-import styles from '~~/styles/gradient-border.module.css';
+import styles from '~~/styles/gradient-border.module.css'
 
 // import styles from '~~/styles/carousel-didactic-content.module.css'
 
@@ -14,9 +14,12 @@ export function MenuMain() {
   const router = useRouter()
 
   return (
-    <section className="flex flex-row flex-wrap justify-center w-full wap-1 gap-6">
+    <section className="flex flex-row flex-wrap justify-center w-full gap-6 wap-1">
       {DidacticContentCards.map(content => (
-        <div className={`${clsx('max-w-[350px] card card-compact')} ${styles.gradientBorder} backdrop-blur-xl`} key={nanoid()}>
+        <div
+          className={`${clsx('max-w-[350px] card card-compact')} ${styles.gradientBorder} backdrop-blur-xl`}
+          key={nanoid()}
+        >
           <figure className="z-10">
             <Image
               src={content.img.path}

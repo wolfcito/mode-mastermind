@@ -30,8 +30,8 @@ export function SwiperSlideContent({ slide }: SwiperSlideContentProps) {
                 <p className="text-base text-justify text-lime-300">{slide.desciption}</p>
               </div>
               <div>
-                <Button
-                  label="Take Quiz!"
+                <BadgeButton
+                  label="Take Quiz"
                   onClick={() => {
                     pageContext.dispatch.setProgress(pageContext.value.progress + 5)
                     swiper.slideNext()
@@ -87,12 +87,12 @@ export function SwiperSlideContent({ slide }: SwiperSlideContentProps) {
               </div>
 
               <div>
-                <Button
+                <BadgeButton
                   label="Check answer"
                   onClick={() => {
                     Toast.fire({
                       icon: isCorrectAns ? 'success' : 'error',
-                      title: isCorrectAns ? 'Good job!' : 'Try Again 😪',
+                      title: isCorrectAns ? 'Good job!🌟' : "Don't worry, keep trying 🤔",
                     })
 
                     if (isCorrectAns) {
