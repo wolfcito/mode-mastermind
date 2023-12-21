@@ -8,6 +8,8 @@ import { Spinner } from '~~/components/spinner'
 import { useScaffoldContract, useScaffoldContractRead, useScaffoldContractWrite } from '~~/hooks/scaffold-eth'
 import { notification } from '~~/utils/scaffold-eth'
 import { NFTMetaData, getNFTMetadataFromIPFS, ipfsClient } from '~~/utils/simpleNFT'
+import { RainbowKitCustomConnectButton } from '~~/components/scaffold-eth'
+
 
 export interface Collectible extends Partial<NFTMetaData> {
   id: number
@@ -16,7 +18,7 @@ export interface Collectible extends Partial<NFTMetaData> {
 }
 
 export function MyHoldings({ type = 'badge' }: { type?: string }) {
-  const { address: connectedAddress, isConnected } = useAccount()
+  const { address: connectedAddress, isConnected, isConnecting } = useAccount()
   const [myAllCollectibles, setMyAllCollectibles] = useState<Collectible[]>([])
   const [allCollectiblesLoading, setAllCollectiblesLoading] = useState(false)
   const router = useRouter()
@@ -127,7 +129,7 @@ export function MyHoldings({ type = 'badge' }: { type?: string }) {
         {type === 'achievement' ? (
           <div className="flex flex-col items-center pt-10">
             <h1 className="flex flex-col w-full mb-6 text-center">
-              <span className="text-4xl font-press">Achievement</span>
+              <span className="text-4xl font-press">My Achievements</span>
             </h1>
 
             <div className="flex justify-center">
@@ -139,7 +141,7 @@ export function MyHoldings({ type = 'badge' }: { type?: string }) {
               </p>
             </div>
             <div className="flex justify-center mt-3 mb-6">
-              <BadgeButton
+              {!isConnected || isConnecting ? <RainbowKitCustomConnectButton /> : <BadgeButton
                 label=" Play Now"
                 onClick={function (): void {
                   if (!isConnected) {
@@ -148,13 +150,13 @@ export function MyHoldings({ type = 'badge' }: { type?: string }) {
                   }
                   router.push('/trivia')
                 }}
-              />
+              />}
             </div>
           </div>
         ) : (
           <div className="flex flex-col items-center pt-10">
             <h1 className="flex flex-col w-full mb-6 text-center">
-              <span className="text-4xl font-press">Badge</span>
+              <span className="text-4xl font-press">My Badges</span>
             </h1>
 
             <div className="flex justify-center">
@@ -166,16 +168,18 @@ export function MyHoldings({ type = 'badge' }: { type?: string }) {
               </p>
             </div>
             <div className="flex justify-center mt-3 mb-6">
-              <BadgeButton
-                label=" Play Now"
-                onClick={function (): void {
-                  if (!isConnected) {
-                    notification.warning('Connect your Wallet')
-                    return
-                  }
-                  router.push('/trivia')
-                }}
-              />
+              <div className="flex justify-center">
+                {!isConnected || isConnecting ? <RainbowKitCustomConnectButton /> : <BadgeButton
+                  label=" Play Now"
+                  onClick={function (): void {
+                    if (!isConnected) {
+                      notification.warning('Connect your Wallet')
+                      return
+                    }
+                    router.push('/trivia')
+                  }}
+                />}
+              </div>
             </div>
           </div>
         )}

@@ -16,14 +16,13 @@ export function MenuMain() {
   return (
     <section className="flex flex-row flex-wrap justify-center w-full wap-1 gap-6">
       {DidacticContentCards.map(content => (
-        <div className={`${clsx('max-w-[350px] card card-compact')} ${styles.gradientBorder} backdrop-blur-xl`} key={nanoid()}>
-          <figure className="z-10">
+        <div className={`${clsx('max-w-[350px] card card-compact overflow-hidden')} ${styles.gradientBorder} backdrop-blur-xl`} key={nanoid()}>
+          <figure className="relative max-w-[350px] h-[260px] overflow-hidden object-contain">
             <Image
               src={content.img.path}
               alt={`${content.title} image`}
-              className={clsx('object-cover h-60 max-w-sm w-full')}
-              width={150}
-              height={150}
+              className={clsx('relative object-cover h-60 w-full')}
+              fill
             />
           </figure>
           <div className="space-y-3 card-body">
