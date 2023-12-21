@@ -36,6 +36,7 @@
 
 .btn-cool a::before {
   content: "";
+  border-radius: 60px;
   position: absolute;
   top: 0;
   left: 0;
@@ -50,6 +51,11 @@
   transform: skewX(-45deg) translateX(200%);
 }
 
+.btn-cool:hover{
+  box-shadow: 0 0 5px #DFFE00, 0 0 15px #DFFE00, 0 0 30px #DFFE00,
+   0 0 60px #DFFE00;
+}
+
 .btn-cool::before {
   content: "";
   position: absolute;
@@ -59,11 +65,9 @@
   height: 10px;
   transform: translateX(-50%);
   background: #000000;
-  border-radius: 10px;
+  border-radius: 60px;
   transition: 0.3s;
   transition-delay: 0s;
-  box-shadow: 0 0 5px #DFFE00, 0 0 15px #DFFE00, 0 0 30px #DFFE00,
-    0 0 60px #DFFE00;
 }
 
 .btn-cool::before {
@@ -72,6 +76,7 @@
   width: 80%;
   border-radius: 30px;
   transition-delay: 0.3s;
+  border-radius: 60px;
 }
 
 .btn-cool::after {
