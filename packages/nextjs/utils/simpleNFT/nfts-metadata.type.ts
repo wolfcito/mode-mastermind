@@ -15,3 +15,12 @@ export interface NftsMetadataProps {
       }
   )[]
 }
+
+export const defaultMetadata: NftsMetadataProps = {
+  type: 'empty',
+  description: '',
+  external_url: '',
+  image: '',
+  name: '',
+  attributes: [],
+}

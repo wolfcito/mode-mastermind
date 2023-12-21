@@ -20,10 +20,10 @@ export default function Home() {
         <div className="px-5 w-[90%] md:w-[75%]">
           <h1 className="w-[750px] mt-24 mx-auto mb-6 text-center">
             <span className="text-5xl font-press">
-              LEARN{' '}
+              LEARN
               <span className="block mt-1 mb-4">
                 <ModeIcon />
-              </span>{' '}
+              </span>
               AND UNLOCK RARE BADGES
             </span>
           </h1>

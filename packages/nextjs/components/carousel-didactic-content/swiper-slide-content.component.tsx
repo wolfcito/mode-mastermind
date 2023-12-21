@@ -13,7 +13,7 @@ import { useScaffoldContractRead, useScaffoldContractWrite } from '~~/hooks/scaf
 import styles from '~~/styles/swiper-slide-content.module.css'
 import { notification } from '~~/utils/scaffold-eth'
 import { ipfsClient } from '~~/utils/simpleNFT'
-import { NftsMetadataProps } from '~~/utils/simpleNFT/nfts-metadata.type'
+import { NftsMetadataProps, defaultMetadata } from '~~/utils/simpleNFT/nfts-metadata.type'
 import { badgesMetadata } from '~~/utils/simpleNFT/nftsMetadata'
 
 export function SwiperSlideContent({ slide }: SwiperSlideContentProps) {
@@ -21,15 +21,6 @@ export function SwiperSlideContent({ slide }: SwiperSlideContentProps) {
   const [isCorrectAns, setIsCorrectAns] = useState<boolean>(false)
   const swiper = useSwiper()
   const router = useRouter()
-
-  const defaultMetadata: NftsMetadataProps = {
-    type: 'empty',
-    description: '',
-    external_url: '',
-    image: '',
-    name: '',
-    attributes: [],
-  }
 
   let currentValueBadge: number
   let currentAreaBadge: string
@@ -112,7 +103,7 @@ export function SwiperSlideContent({ slide }: SwiperSlideContentProps) {
             ></div>
             <div className="flex flex-col justify-between w-2/3 p-4 leading-normal bg-black border rounded-b border-lime-300 lg:border lg:border-lime-300 lg:rounded-b-none lg:rounded-r">
               <div className="mb-8">
-                <h4 className="mb-2 text-6xl text-center font-VT323">{slide.title}</h4>
+                <h4 className="mb-2 text-6xl text-center font-press">{slide.title}</h4>
                 {slide.quizz.questions.map(question => (
                   <label key={nanoid()} className="text-white">
                     {question.statement}
