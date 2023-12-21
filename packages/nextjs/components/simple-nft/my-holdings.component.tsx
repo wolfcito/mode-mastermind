@@ -3,20 +3,16 @@ import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { AchievementButton, BadgeButton } from '../button'
 import { NFTCard } from './nft-card.component'
+import { Collectible } from './simple-nft.type'
 import { nanoid } from 'nanoid'
 import { useAccount } from 'wagmi'
 import { RainbowKitCustomConnectButton } from '~~/components/scaffold-eth'
 import { Spinner } from '~~/components/spinner'
 import { useScaffoldContract, useScaffoldContractRead, useScaffoldContractWrite } from '~~/hooks/scaffold-eth'
+import { getKnowledgeAreas } from '~~/utils/filters'
 import { notification } from '~~/utils/scaffold-eth'
 import { NFTMetaData, badgesMetadata, getNFTMetadataFromIPFS, ipfsClient } from '~~/utils/simpleNFT'
 import { defaultMetadata } from '~~/utils/simpleNFT/nfts-metadata.type'
-
-export interface Collectible extends Partial<NFTMetaData> {
-  id: number
-  uri: string
-  owner: string
-}
 
 export function MyHoldings({ type = 'badge' }: { type?: string }) {
   const { address: connectedAddress, isConnected, isConnecting } = useAccount()
@@ -257,18 +253,4 @@ export function MyHoldings({ type = 'badge' }: { type?: string }) {
       </>
     </>
   )
-}
-
-const getKnowledgeAreas = (badges: Collectible[]) => {
-  const valoresUnicos: Set<string> = new Set()
-
-  badges.forEach(badge => {
-    badge.attributes?.forEach((attribute: any) => {
-      if (attribute.trait_type === 'Area') {
-        valoresUnicos.add(attribute.value)
-      }
-    })
-  })
-
-  return Array.from(valoresUnicos)
 }
