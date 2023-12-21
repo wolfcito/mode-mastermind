@@ -1,5 +1,1 @@
-import ContentDidacticProgressBar from './content-didactic.component'
-
-export {
-    ContentDidacticProgressBar
-}
+export * from './content-didactic.component'
