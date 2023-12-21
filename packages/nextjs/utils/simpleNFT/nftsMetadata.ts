@@ -1,6 +1,6 @@
 import { NftsMetadataProps } from './nfts-metadata.type'
 
-export const badgesMetadata: NftsMetadataProps = [
+export const badgesMetadata: NftsMetadataProps[] = [
   {
     type: 'achievement',
     description: 'Charting the blockchain frontier, one block at a time.',
@@ -123,7 +123,7 @@ export const badgesMetadata: NftsMetadataProps = [
       'https://yellow-rotten-planarian-252.mypinata.cloud/ipfs/QmRGzZvBWKXvqVSZ3KX5pL8CihBNhyW3QcKUiRybasXNAY/block1.png',
     image:
       'https://yellow-rotten-planarian-252.mypinata.cloud/ipfs/QmRGzZvBWKXvqVSZ3KX5pL8CihBNhyW3QcKUiRybasXNAY/block1.png',
-    name: 'Block Analyst',
+    name: 'Mode Explorer',
     attributes: [
       {
         trait_type: 'Area',
