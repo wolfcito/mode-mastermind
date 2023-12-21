@@ -14,12 +14,9 @@ export function MenuMain() {
   const router = useRouter()
 
   return (
-    <section className="flex flex-row flex-wrap justify-center w-full gap-6 wap-1">
+    <section className="flex flex-row flex-wrap justify-center w-full wap-1 gap-6">
       {DidacticContentCards.map(content => (
-        <div
-          className={`${clsx('max-w-[350px] card card-compact')} ${styles.gradientBorder} backdrop-blur-xl`}
-          key={nanoid()}
-        >
+        <div className={`${clsx('max-w-[350px] card card-compact')} ${styles.gradientBorder} backdrop-blur-xl`} key={nanoid()}>
           <figure className="z-10">
             <Image
               src={content.img.path}

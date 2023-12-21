@@ -21,9 +21,9 @@ export default function Home() {
           <h1 className="w-[750px] mt-24 mx-auto mb-6 text-center">
             <span className="text-5xl font-press">
               LEARN
-              <span className="block mt-1 mb-4">
+              <div className="block mt-1 mb-4">
                 <ModeIcon />
-              </span>
+              </div>
               AND UNLOCK RARE BADGES
             </span>
           </h1>
