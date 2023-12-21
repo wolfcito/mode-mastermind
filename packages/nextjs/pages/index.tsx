@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { useAccount } from 'wagmi'
 import { nanoid } from 'nanoid'
+import { Slider } from '~~/components/animation'
 import { BadgeButton } from '~~/components/button'
 import { MetaHeader } from '~~/components/header'
 import { HOME_ROADMAP } from '~~/constants'
