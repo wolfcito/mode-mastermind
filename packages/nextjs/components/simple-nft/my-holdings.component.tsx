@@ -3,13 +3,14 @@ import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { AchievementButton, BadgeButton } from '../button'
 import { NFTCard } from './nft-card.component'
+import { nanoid } from 'nanoid'
 import { useAccount } from 'wagmi'
+import { RainbowKitCustomConnectButton } from '~~/components/scaffold-eth'
 import { Spinner } from '~~/components/spinner'
 import { useScaffoldContract, useScaffoldContractRead, useScaffoldContractWrite } from '~~/hooks/scaffold-eth'
 import { notification } from '~~/utils/scaffold-eth'
-import { NFTMetaData, getNFTMetadataFromIPFS, ipfsClient } from '~~/utils/simpleNFT'
-import { RainbowKitCustomConnectButton } from '~~/components/scaffold-eth'
-
+import { NFTMetaData, badgesMetadata, getNFTMetadataFromIPFS, ipfsClient } from '~~/utils/simpleNFT'
+import { defaultMetadata } from '~~/utils/simpleNFT/nfts-metadata.type'
 
 export interface Collectible extends Partial<NFTMetaData> {
   id: number
@@ -22,6 +23,8 @@ export function MyHoldings({ type = 'badge' }: { type?: string }) {
   const [myAllCollectibles, setMyAllCollectibles] = useState<Collectible[]>([])
   const [allCollectiblesLoading, setAllCollectiblesLoading] = useState(false)
   const router = useRouter()
+
+  const [myAchievements, setMyAchievements] = useState<Collectible[]>([])
 
   const { data: modeMasterMindContract } = useScaffoldContract({
     contractName: 'ModeMasterMind',
@@ -81,6 +84,9 @@ export function MyHoldings({ type = 'badge' }: { type?: string }) {
       }
       collectibleUpdate.sort((a, b) => a.id - b.id)
       const collectibleAchivements = collectibleUpdate.filter(collected => collected.type === type)
+      const myAchievements = collectibleUpdate.filter(collected => collected.type === 'achievement')
+
+      setMyAchievements(myAchievements)
       setMyAllCollectibles(collectibleAchivements)
       setAllCollectiblesLoading(false)
     }
@@ -89,17 +95,19 @@ export function MyHoldings({ type = 'badge' }: { type?: string }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [connectedAddress, myTotalBalance])
 
-  const handleMintItem = async ({ type = 'achievement' }: { type?: string }) => {
+  const handleMintItem = async ({ type = 'achievement', area }: { type?: string; area: string }) => {
     // circle back to the zero item if we've reached the end of the array
     if (tokenIdCounter === undefined) return
 
-    const currentTokenMetaData = null
-    console.log('currentTokenMetaData', currentTokenMetaData)
+    const currentTokenMetaData =
+      badgesMetadata.find(badge => {
+        return (
+          badge.type === type &&
+          badge.attributes.some(atributo => atributo.trait_type === 'Area' && atributo.value === area)
+        )
+      }) ?? defaultMetadata
+    // console.log('currentTokenMetaData', currentTokenMetaData)
 
-    // const tokenIdCounterNumber = parseInt(tokenIdCounter.toString())
-    // const badgesByTopic = badgesMetadata.filter(badge => badge.type === type)
-    // console.log('badges', badgesByTopic)
-    // const currentTokenMetaData = badgesByTopic[tokenIdCounterNumber % badgesByTopic.length]
     const notificationId = notification.loading('Uploading to IPFS')
     try {
       const uploadedItem = await ipfsClient.add(JSON.stringify(currentTokenMetaData))
@@ -111,6 +119,8 @@ export function MyHoldings({ type = 'badge' }: { type?: string }) {
       await mintItem({
         args: [connectedAddress, uploadedItem.path],
       })
+
+      router.push('/achievement')
     } catch (error) {
       notification.remove(notificationId)
       console.error(error)
@@ -141,16 +151,20 @@ export function MyHoldings({ type = 'badge' }: { type?: string }) {
               </p>
             </div>
             <div className="flex justify-center mt-3 mb-6">
-              {!isConnected || isConnecting ? <RainbowKitCustomConnectButton /> : <BadgeButton
-                label=" Play Now"
-                onClick={function (): void {
-                  if (!isConnected) {
-                    notification.warning('Connect your Wallet')
-                    return
-                  }
-                  router.push('/trivia')
-                }}
-              />}
+              {!isConnected || isConnecting ? (
+                <RainbowKitCustomConnectButton />
+              ) : (
+                <BadgeButton
+                  label=" Play Now"
+                  onClick={function (): void {
+                    if (!isConnected) {
+                      notification.warning('Connect your Wallet')
+                      return
+                    }
+                    router.push('/trivia')
+                  }}
+                />
+              )}
             </div>
           </div>
         ) : (
@@ -169,16 +183,20 @@ export function MyHoldings({ type = 'badge' }: { type?: string }) {
             </div>
             <div className="flex justify-center mt-3 mb-6">
               <div className="flex justify-center">
-                {!isConnected || isConnecting ? <RainbowKitCustomConnectButton /> : <BadgeButton
-                  label=" Play Now"
-                  onClick={function (): void {
-                    if (!isConnected) {
-                      notification.warning('Connect your Wallet')
-                      return
-                    }
-                    router.push('/trivia')
-                  }}
-                />}
+                {!isConnected || isConnecting ? (
+                  <RainbowKitCustomConnectButton />
+                ) : (
+                  <BadgeButton
+                    label=" Play Now"
+                    onClick={function (): void {
+                      if (!isConnected) {
+                        notification.warning('Connect your Wallet')
+                        return
+                      }
+                      router.push('/trivia')
+                    }}
+                  />
+                )}
               </div>
             </div>
           </div>
@@ -188,18 +206,39 @@ export function MyHoldings({ type = 'badge' }: { type?: string }) {
 
   return (
     <>
-      {myAllCollectibles.length === 3 ? (
-        <div className="flex flex-col items-center pt-10">
-          <h1 className="flex flex-col w-full mb-6 text-center">
-            <span className="text-4xl font-press">Epic Achievement</span>
-            <span className="text-4xl font-press">Unlocked</span>
-          </h1>
+      <div className="flex flex-col items-center pt-10">
+        {getKnowledgeAreas(myAllCollectibles).map(area => {
+          const badgesByArea = myAllCollectibles.filter(badge => {
+            return (
+              badge.type === 'badge' &&
+              badge.attributes?.some(atributo => atributo.trait_type === 'Area' && atributo.value === area)
+            )
+          })
 
-          <div className="flex justify-center">
-            <AchievementButton onClick={() => handleMintItem({ type: 'achievement' })} />
-          </div>
-        </div>
-      ) : null}
+          return badgesByArea.length === 3 ? (
+            <>
+              {getKnowledgeAreas(myAchievements).map(achieveArea => {
+                if (achieveArea !== area) {
+                  return (
+                    <div className="flex-wrap" key={nanoid()}>
+                      <h1 className="flex flex-col w-full mb-6 text-center">
+                        <span className="text-4xl font-press">Epic Achievement</span>
+                        <span className="text-4xl font-press">Unlocked</span>
+                      </h1>
+                      <div className="flex justify-center">
+                        <AchievementButton
+                          onClick={() => handleMintItem({ type: 'achievement', area: area })}
+                          label={`Claim Epic Achievment Badge - ${area}`}
+                        />
+                      </div>
+                    </div>
+                  )
+                }
+              })}
+            </>
+          ) : null
+        })}
+      </div>
       <>
         <div className="flex flex-col items-center pt-10">
           <div className="px-5">
@@ -218,4 +257,18 @@ export function MyHoldings({ type = 'badge' }: { type?: string }) {
       </>
     </>
   )
+}
+
+const getKnowledgeAreas = (badges: Collectible[]) => {
+  const valoresUnicos: Set<string> = new Set()
+
+  badges.forEach(badge => {
+    badge.attributes?.forEach((attribute: any) => {
+      if (attribute.trait_type === 'Area') {
+        valoresUnicos.add(attribute.value)
+      }
+    })
+  })
+
+  return Array.from(valoresUnicos)
 }
