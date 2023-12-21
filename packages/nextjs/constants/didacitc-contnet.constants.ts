@@ -9,7 +9,7 @@ export const DidacticContentCards: DidacticContentCoverflowCardProps[] = [
     id: 'Blockchain-1',
     title: 'Exploring Mode',
     img: {
-      path: '/assets/badge-1.png',
+      path: '/assets/trivia-one.png',
       width: 50,
       height: 50,
     },
@@ -24,7 +24,7 @@ export const DidacticContentCards: DidacticContentCoverflowCardProps[] = [
     id: 'Blockchain-2',
     title: 'Block Analyst',
     img: {
-      path: '/assets/badge-2-without-backgound.png',
+      path: '/assets/trivia-default.png',
       width: 50,
       height: 50,
     },
@@ -40,7 +40,7 @@ export const DidacticContentCards: DidacticContentCoverflowCardProps[] = [
     id: 'Blockchain-3',
     title: 'Semantic Web',
     img: {
-      path: '/assets/moon-badget-without-background.png',
+      path: '/assets/trivia-default.png',
       width: 50,
       height: 50,
     },
@@ -57,7 +57,7 @@ export const DidacticContentCards: DidacticContentCoverflowCardProps[] = [
     id: 'smart-contracts-1',
     title: 'Contract Engineer',
     img: {
-      path: '/assets/moon-badget-without-background.png',
+      path: '/assets/trivia-default.png',
       width: 50,
       height: 50,
     },
@@ -72,7 +72,7 @@ export const DidacticContentCards: DidacticContentCoverflowCardProps[] = [
     id: 'smart-contracts-2',
     title: 'Visionary Coder',
     img: {
-      path: '/assets/moon-badget-without-background.png',
+      path: '/assets/trivia-default.png',
       width: 50,
       height: 50,
     },
@@ -87,7 +87,7 @@ export const DidacticContentCards: DidacticContentCoverflowCardProps[] = [
     id: 'smart-contracts-3',
     title: 'Swift Deployer',
     img: {
-      path: '/assets/moon-badget-without-background.png',
+      path: '/assets/trivia-default.png',
       width: 50,
       height: 50,
     },
@@ -103,7 +103,7 @@ export const DidacticContentCards: DidacticContentCoverflowCardProps[] = [
     id: 'token-1',
     title: 'Token Operator',
     img: {
-      path: '/assets/moon-badget-without-background.png',
+      path: '/assets/trivia-default.png',
       width: 50,
       height: 50,
     },
@@ -118,7 +118,7 @@ export const DidacticContentCards: DidacticContentCoverflowCardProps[] = [
     id: 'token-2',
     title: 'Market Analyst',
     img: {
-      path: '/assets/moon-badget-without-background.png',
+      path: '/assets/trivia-default.png',
       width: 50,
       height: 50,
     },
@@ -133,7 +133,7 @@ export const DidacticContentCards: DidacticContentCoverflowCardProps[] = [
     id: 'token-3',
     title: 'Portfolio Master',
     img: {
-      path: '/assets/moon-badget-without-background.png',
+      path: '/assets/trivia-default.png',
       width: 50,
       height: 50,
     },

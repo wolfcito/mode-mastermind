@@ -10,7 +10,6 @@ export default function Trivia() {
           <h1 className="w-full mt-24 mb-10 text-center">
             <span className="text-6xl font-press">Trivia</span>
           </h1>
-
           <MenuMain />
         </div>
       </main>

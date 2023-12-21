@@ -16,9 +16,6 @@ export default function MyAchievements() {
           </h1>
         </div>
       </div> */}
-      <div className="flex justify-center">
-        {!isConnected || isConnecting ? <RainbowKitCustomConnectButton /> : null}
-      </div>
       <MyHoldings type={'achievement'} />
     </>
   )
