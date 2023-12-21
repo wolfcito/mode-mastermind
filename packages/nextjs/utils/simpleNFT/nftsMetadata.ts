@@ -1,4 +1,6 @@
-export const badgesMetadata = [
+import { NftsMetadataProps } from './nfts-metadata.type'
+
+export const badgesMetadata: NftsMetadataProps = [
   {
     type: 'achievement',
     description: 'Charting the blockchain frontier, one block at a time.',
