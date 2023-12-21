@@ -58,8 +58,8 @@ export default function MyBagdes() {
       {badgesCollected.length === 3 ? (
         <div className="flex flex-col items-center pt-10">
           <h1 className="flex flex-col w-full mb-6 text-center">
-            <span className="text-4xl font-VT323">Epic Achievement</span>
-            <span className="text-4xl font-VT323">Unlocked</span>
+            <span className="text-4xl font-press">Epic Achievement</span>
+            <span className="text-4xl font-press">Unlocked</span>
           </h1>
 
           {isConnected || !isConnecting ? (

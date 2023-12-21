@@ -5,7 +5,7 @@ import { BadgeButton } from '../button'
 import clsx from 'clsx'
 import { nanoid } from 'nanoid'
 import { DidacticContentCards } from '~~/constants/didacitc-contnet.constants'
-import styles from '~~/styles/gradient-border.module.css';
+import styles from '~~/styles/gradient-border.module.css'
 
 // import styles from '~~/styles/carousel-didactic-content.module.css'
 

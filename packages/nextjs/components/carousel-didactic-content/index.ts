@@ -1,7 +1,2 @@
-import DidacticContentCoverflow from "./coverflow.component";
-import RunwayContentDidactic from "./runway.component";
-
-export {
-    DidacticContentCoverflow,
-    RunwayContentDidactic
-}
+export * from './runway.component'
+export * from './coverflow.component'
