@@ -1,10 +1,11 @@
 // import { useId } from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-import { Button } from '../button'
+import { BadgeButton } from '../button'
 import clsx from 'clsx'
 import { nanoid } from 'nanoid'
 import { DidacticContentCards } from '~~/constants/didacitc-contnet.constants'
+import styles from '~~/styles/gradient-border.module.css';
 
 // import styles from '~~/styles/carousel-didactic-content.module.css'
 
@@ -13,14 +14,14 @@ export function MenuMain() {
   const router = useRouter()
 
   return (
-    <section className="flex flex-row flex-wrap justify-center w-full wap-1">
+    <section className="flex flex-row flex-wrap justify-center w-full wap-1 gap-6">
       {DidacticContentCards.map(content => (
-        <div className={clsx('max-w-sm card card-compact shadow-lg shadow-secondary')} key={nanoid()}>
+        <div className={`${clsx('max-w-[350px] card card-compact')} ${styles.gradientBorder} backdrop-blur-xl`} key={nanoid()}>
           <figure className="z-10">
             <Image
               src={content.img.path}
               alt={`${content.title} image`}
-              className={clsx('object-cover h-60 drop-shadow-[0_35px_35px_rgba(223,254,0,1)] max-w-sm pt-4 w-full')}
+              className={clsx('object-cover h-60 max-w-sm w-full')}
               width={150}
               height={150}
             />
@@ -36,8 +37,8 @@ export function MenuMain() {
               <p className="my-0 text-base font-light">{content.description}</p>
             </div>
             <div className="flex items-end justify-center px-10 pt-4 pb-2">
-              <Button
-                label="START!"
+              <BadgeButton
+                label="START"
                 onClick={() => {
                   router.push(`content-didactic/${content.id}`)
                 }}

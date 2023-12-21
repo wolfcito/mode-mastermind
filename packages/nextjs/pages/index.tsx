@@ -1,32 +1,36 @@
 import Image from 'next/image'
-import Link from 'next/link'
+import { useAccount } from 'wagmi'
 import { nanoid } from 'nanoid'
 import { Slider } from '~~/components/animation'
 import { BadgeButton } from '~~/components/button'
 import { MetaHeader } from '~~/components/header'
 import { HOME_ROADMAP } from '~~/constants'
+import { Slider } from '~~/components/animation'
 import { ModeIcon } from '~~/icons'
+import { useRouter } from 'next/navigation'
+import { notification } from '~~/utils/scaffold-eth'
 
 export default function Home() {
+  const router = useRouter()
+  const { isConnected } = useAccount()
+
   return (
     <>
       <MetaHeader />
       <main className="flex flex-col items-center flex-grow pt-10 pb-60">
         <div className="px-5 w-[90%] md:w-[75%]">
           <h1 className="w-[750px] mt-24 mx-auto mb-6 text-center">
-            <span className="text-5xl font-press">
-              LEARN{' '}
-              <span className="block mt-1 mb-4">
-                <ModeIcon />
-              </span>{' '}
-              AND UNLOCK RARE BADGES
-            </span>
+            <span className="text-5xl font-press">LEARN <span className='block mt-1 mb-4'><ModeIcon /></span> AND UNLOCK RARE BADGES</span>
           </h1>
 
-          <div className="flex justify-center mt-3 mb-6">
-            <Link href="/trivia" className="flex justify-center mb-6">
-              <BadgeButton label="Play now" />
-            </Link>
+          <div className='flex justify-center mt-3 mb-6'>
+            <BadgeButton label=" Play Now" onClick={function (): void {
+              if (!isConnected) {
+                notification.warning("Connect your Wallet");
+                return
+              }
+              router.push("/trivia");
+            }} />
           </div>
 
           {HOME_ROADMAP.map(item => (
@@ -47,7 +51,7 @@ export default function Home() {
             </div>
           ))}
         </div>
-        <div className="fixed bottom-0 flex items-end w-full pointer-events-none h-2/3 bg-gradient-to-t from-black to-transparent">
+        <div className='pointer-events-none w-full h-2/3 bg-gradient-to-t from-black to-transparent fixed bottom-0 flex items-end'>
           <Slider />
         </div>
       </main>

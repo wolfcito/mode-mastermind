@@ -22,9 +22,9 @@ export default function Activity() {
     <>
       <MetaHeader />
       <div className="flex flex-col items-center flex-grow pt-10">
-        <div className="px-5">
-          <h1 className="flex flex-col w-full mb-6 text-center">
-            <span className="text-6xl font-VT323">Degen Master Activity</span>
+        <div className="px-5 mb-12">
+          <h1 className="flex flex-col items-center w-36 mt-24 mb-6 text-center">
+            <span className="text-6xl font-press text-center">Mode Mastermind Txns</span>
           </h1>
         </div>
         <div className="overflow-x-auto shadow-lg">
