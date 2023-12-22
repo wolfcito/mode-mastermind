@@ -12,6 +12,7 @@ const nextConfig = {
   },
   images: {
     domains: ['yellow-rotten-planarian-252.mypinata.cloud'],
+    unoptimized: true,
   },
   webpack: config => {
     config.resolve.fallback = { fs: false, net: false, tls: false }
