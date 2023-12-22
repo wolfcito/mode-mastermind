@@ -1,5 +1,8 @@
 # 🚀 Welcome to Mode Mastermind – Unleash Your Knowledge!
 
+![Mode Mastermind](https://github.com/wolfcito/mode-mastermind/assets/791301/0df524db-b6c2-4b59-baa6-66028bacfd5d)
+
+
 ## Inspiration
 
 ### Inspiration Section
@@ -28,9 +31,6 @@ In addition to educational challenges, we face the reality of online scams and f
 
 In conclusion, Mode Mastermind aspires not only to educate but also to inspire real and lasting changes. We are building bridges to a future where brain health and education are shared priorities, and where each user is an empowered agent of change.
 
-## What it does
-
-Mode Mastermind challenges you with puzzling questions. By earning badges and conquering levels, you can mint epic achievements that will allow you to participate in Mode's VIP events.
 
 ## What it does
 
