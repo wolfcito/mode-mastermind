@@ -2,15 +2,14 @@ import Image from 'next/image'
 import { Address } from '../scaffold-eth'
 import { NFTCardProps } from './simple-nft.type'
 import clsx from 'clsx'
+import { nanoid } from 'nanoid'
 
 export function AchievementCard({ nft, classcard }: NFTCardProps) {
-  const backgroundImage = `bg-[url('${nft.image}')`
   return (
     <article className="flex flex-col items-center content-center justify-center">
       <div
         className={clsx(
           'max-w-sm w-full rounded overflow-hidden shadow-lg flex flex-col content-center relative h-96',
-          backgroundImage,
           classcard,
         )}
       >
@@ -28,7 +27,10 @@ export function AchievementCard({ nft, classcard }: NFTCardProps) {
               {nft.attributes?.map(item => {
                 if (item.trait_type === 'Area')
                   return (
-                    <span className="inline-block px-3 py-1 mb-2 mr-2 text-sm font-semibold rounded-full text-secondary-content bg-neutral">
+                    <span
+                      key={nanoid()}
+                      className="inline-block px-3 py-1 mb-2 mr-2 text-sm font-semibold rounded-full text-secondary-content bg-neutral"
+                    >
                       {item.value}
                     </span>
                   )

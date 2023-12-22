@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { Address } from '../scaffold-eth'
 import { NFTCardProps } from './simple-nft.type'
 import clsx from 'clsx'
+import { nanoid } from 'nanoid'
 
 export function BadgeCard({ nft, classcard }: NFTCardProps) {
   return (
@@ -27,7 +28,10 @@ export function BadgeCard({ nft, classcard }: NFTCardProps) {
                 {nft.attributes?.map(item => {
                   if (item.trait_type === 'Area')
                     return (
-                      <span className="inline-block px-3 py-1 mb-2 mr-2 text-sm font-semibold rounded-full text-secondary-content bg-neutral">
+                      <span
+                        key={nanoid()}
+                        className="inline-block px-3 py-1 mb-2 mr-2 text-sm font-semibold rounded-full text-secondary-content bg-neutral"
+                      >
                         {item.value}
                       </span>
                     )
