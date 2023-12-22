@@ -1,4 +1,4 @@
-import create from "zustand";
+import { create } from 'zustand'
 
 /**
  * Zustand Store
@@ -10,11 +10,11 @@ import create from "zustand";
  */
 
 type TGlobalState = {
-  nativeCurrencyPrice: number;
-  setNativeCurrencyPrice: (newNativeCurrencyPriceState: number) => void;
-};
+  nativeCurrencyPrice: number
+  setNativeCurrencyPrice: (newNativeCurrencyPriceState: number) => void
+}
 
 export const useGlobalState = create<TGlobalState>(set => ({
   nativeCurrencyPrice: 0,
   setNativeCurrencyPrice: (newValue: number): void => set(() => ({ nativeCurrencyPrice: newValue })),
-}));
+}))
