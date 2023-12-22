@@ -66,7 +66,6 @@ export function SwiperSlideContent({ slide }: SwiperSlideContentProps) {
 
   switch (slide.type) {
     case ContentDidacticSlideTypes.INFORMATIVE:
-      console.log(slide)
       return (
         <article className="flex h-[70vh] content-center justify-center ">
           <div className="max-w-sm w-[80-vw] lg:max-w-[80vw] lg:min-w-[70vw] lg:flex my-10 px-10 shadow-lg ">
@@ -80,15 +79,14 @@ export function SwiperSlideContent({ slide }: SwiperSlideContentProps) {
                 <h4 className="mb-2 text-3xl text-center font-press">{slide.title}</h4>
                 <p className="text-base text-justify text-lime-300">{slide.desciption}</p>
               </div>
-              <div>
-                <BadgeButton
-                  label="Take Quiz"
-                  onClick={() => {
-                    pageContext.dispatch.setProgress(pageContext.value.progress + 5)
-                    swiper.slideNext()
-                  }}
-                />
-              </div>
+
+              <BadgeButton
+                label="Take Quiz"
+                onClick={() => {
+                  pageContext.dispatch.setProgress(pageContext.value.progress + 5)
+                  swiper.slideNext()
+                }}
+              />
             </div>
           </div>
         </article>
@@ -156,12 +154,9 @@ export function SwiperSlideContent({ slide }: SwiperSlideContentProps) {
         </article>
       )
     case ContentDidacticSlideTypes.BAGDET:
-      // console.log('slide', { slide })
-
       currentValueBadge = slide.badget.value
       currentAreaBadge = slide.badget.area
-      console.log('currentValueBadge', currentValueBadge)
-      console.log('currentAreaBadge', currentAreaBadge)
+
       currentTokenMetaData =
         badgesMetadata.find(badge => {
           return (

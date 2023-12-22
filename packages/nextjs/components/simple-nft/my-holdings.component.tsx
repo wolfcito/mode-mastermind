@@ -102,7 +102,6 @@ export function MyHoldings({ type = 'badge' }: { type?: string }) {
           badge.attributes.some(atributo => atributo.trait_type === 'Area' && atributo.value === area)
         )
       }) ?? defaultMetadata
-    // console.log('currentTokenMetaData', currentTokenMetaData)
 
     const notificationId = notification.loading('Uploading to IPFS')
     try {
