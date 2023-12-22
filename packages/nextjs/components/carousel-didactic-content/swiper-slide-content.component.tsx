@@ -102,7 +102,6 @@ export function SwiperSlideContent({ slide }: SwiperSlideContentProps) {
             ></div>
             <div className="flex flex-col justify-between w-2/3 p-4 leading-normal bg-black border rounded-b border-lime-300 lg:border lg:border-lime-300 lg:rounded-b-none lg:rounded-r">
               <div className="mb-8">
-                {/* <h4 className="mb-2 text-3xl text-center font-press">{slide.title}</h4> */}
                 {slide.quizz.questions.map(question => (
                   <label key={nanoid()} className="text-white">
                     {question.statement}
@@ -196,7 +195,10 @@ export function SwiperSlideContent({ slide }: SwiperSlideContentProps) {
                     {currentTokenMetaData.attributes.map(item => {
                       if (item.trait_type === 'Area')
                         return (
-                          <span className="inline-block px-3 py-1 mb-2 mr-2 text-sm font-semibold rounded-full text-secondary-content bg-neutral">
+                          <span
+                            className="inline-block px-3 py-1 mb-2 mr-2 text-sm font-semibold rounded-full text-secondary-content bg-neutral"
+                            key={nanoid()}
+                          >
                             {item.value}
                           </span>
                         )

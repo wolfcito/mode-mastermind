@@ -237,7 +237,7 @@ export function MyHoldings({ type = 'badge' }: { type?: string }) {
       <>
         <div className="flex flex-col items-center pt-10">
           <div className="px-5">
-            <h1 className="flex flex-col w-full mt-20 mb-6 text-center">
+            <h1 className="flex flex-col w-full mb-6 text-center mt-14">
               <span className="text-5xl font-press">
                 {type === 'achievement' ? 'You are now a Mode Master' : 'Level Up Badges'}
               </span>
