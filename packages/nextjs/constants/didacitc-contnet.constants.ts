@@ -168,7 +168,7 @@ const courseMock = {
             `,
       img: {
         heigth: 50,
-        path: '/assets/mode/mode004.jpg',
+        path: '/assets/trivia-one.gif',
         width: 50,
       },
       quizz: {
@@ -206,7 +206,7 @@ const courseMock = {
             `,
       img: {
         heigth: 50,
-        path: '/assets/mode/mode004.jpg',
+        path: '/assets/trivia-one.gif',
         width: 50,
       },
       quizz: {
@@ -244,7 +244,7 @@ const courseMock = {
             `,
       img: {
         heigth: 50,
-        path: '/assets/mode/mode004.jpg',
+        path: '/assets/trivia-one.gif',
         width: 50,
       },
       quizz: {
