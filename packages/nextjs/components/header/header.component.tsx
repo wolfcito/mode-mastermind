@@ -46,6 +46,9 @@ export function Header() {
       <li>
         <NavLink href="/debug">Debug Contracts</NavLink>
       </li>
+      <li>
+        <NavLink href="/about">About</NavLink>
+      </li>
     </>
   )
 
